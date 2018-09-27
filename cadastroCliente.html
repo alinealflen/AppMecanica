@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cadastrar cliente - World Bikes</title>
+        <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
+        <link href="css/fundo.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body id="fundo">
+        <img src="css/img/logo.png" alt="World Bikes" width="20%">
+
+        <nav id="menu">
+            <ul>
+                <li><a href="agenda.html">Agenda</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+                <li><a class="active" href="cadastroCliente.html">Cadastrar Cliente</a></li>
+            </ul>
+            </nav>
+    
+            <hr style="background-color: #33c208">
+    
+        <h1 id="titulo">Cadastro de Cliente</h1>
+
+        <div id=form2>
+            <form method="post" action="salvarCliente.php">
+                    <fieldset id=borda>
+                        <label for="name">Nome do cliente:</label>
+                        <br />
+                        <input type="text" name="nome" id="nome" />
+                        <br />
+                        <label for="cpf">CPF: </label>
+                        <br />
+                        <input type="text" name="cpf" id="cpf" />
+                        <br />
+                        <label for="telefone">Telefone:</label>
+                        <br />
+                        <input type="text" name="telefone" id="telefone" />
+                        <br />
+                
+           <!--<div id=form2>-->
+                  
+                            <label for="modelo">Modelo da bicicleta:</label>
+                            <br />
+                            <input type="text" name="modelo" id="modelo" />
+                            <br />
+                            <label for="aro">Aro da bicicleta: </label>
+                            <br />
+                            <input type="text" name="aro" id="aro" />
+                            <br />
+                            <label for="cor">Cor da bicicleta:</label>
+                            <br />
+                            <input type="text" name="cor" id="cor" />
+                            <br />
+                           
+                                <button class="button" type="submit">Salvar</button>
+                           
+                        </fieldset>
+                    </form>
+                </div>
+        
+    </body>
+
+
+</html>

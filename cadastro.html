@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cadastrar funcionário - World Bikes</title>
+
+    <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/fundo.css" type="text/css">
+</head>
+
+<body id="fundo">
+
+    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+
+    <nav id="menu">
+        <ul>
+            <li><a href="agenda.html">Agenda</a></li>
+            <li><a class="active" href="cadastro.html">Cadastro</a></li>
+            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="cadastroCliente.html">Cadastrar Cliente</a></li>
+        </ul>
+        </nav>
+
+        <hr style="background-color: #33c208">
+
+    <h1 id="titulo">Cadastro de Usuario</h1>
+
+    <div id=form2>
+        <form method="post" action="salvarFuncionario.php">
+            <fieldset id=borda>
+
+                <label for="name">Nome:</label>
+                <br />
+                <input type="text" name="nome" id="nome" />
+                <br />
+                <label for="login">Login: </label>
+                <br />
+                <input type="text" name="login" id="login" />
+                <br />
+                <label for="senha">Senha:</label>
+                <br />
+                <input type="text" name="senha" id="senha" />
+                <br />
+                <div class="button">
+                    <button type="submit">Cadastrar</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>
