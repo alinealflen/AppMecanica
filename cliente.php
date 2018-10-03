@@ -1,12 +1,16 @@
 <?php
 
     include "conecta.php";
+    //include "verifica.php";
 
-    
-    $sql = "select nome, cpf, telefone from  cliente order by nome asc"; 
+
+    if (isset($_POST['buscar'])){
+
+    $nome = ($_POST["nome"]);
+    $sql = "select nome, cpf, telefone from  cliente WHERE nome like '$nome%'";//UPPER(nome) like '$nome'% order by nome asc"; 
     mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
     $result = mysqli_query($_SG['link'], $sql);
-
+    }
 ?>
 <html>
 
@@ -33,14 +37,15 @@
     <hr style="background-color: #33c208">
 
     <h1 id="titulo">Clientes</h1>
-    <form method="post" action="buscaCliente.php">
-        <input type="text" name="cpf" id="cpf" class="campo1" />
-         <div class="button">
-         <input src="icons/buscar.png" type="image">
+    <a href="cadastroCliente.html"><button type="submit"><img src="icons/addCliente.png"></button></a>
+    <form id="form4" method="post" action="">
+        <input type="text" name="nome" id="nome" class="campo1" />
+		<div class="button">
+           <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
         </div>
     </form>
-
-
+               
+    <form method="post" action="buscaCliente2.php">
  <table id="tabelaLista" width="800" cellpadding="30";>
       <thead>
         <tr> <!--Linha da tabela-->
@@ -52,20 +57,40 @@
       <tbody>
 
     <?php
+    if (isset($_POST['buscar'])) {
 
-    while($aux = mysqli_fetch_assoc($result)) { 
+        while($aux = mysqli_fetch_assoc($result)) { 
     ?>
      <tr>
         <td id="tabela2"><?php echo $aux["nome"];?></td>
         <td id="tabela2"><?php echo $aux["telefone"];?></td>
-        <td id="tabela2"><?php echo $aux["cpf"];?></td>
+        <td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
+        <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
     </tr>
     <?php
-    }
+    }//fecha while //disabled="disabled"
+  }//fecha if
+    else{
+    include "conecta.php";
+    $sql = "select nome, cpf, telefone from  cliente ";//UPPER(nome) like '$nome'% order by nome asc"; 
+    mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+    $result = mysqli_query($_SG['link'], $sql);
+        while($aux = mysqli_fetch_assoc($result)){
+    ?>
+        <tr>
+            <td id="tabela2"><?php echo $aux["nome"];?></td>
+            <td id="tabela2"><?php echo $aux["telefone"];?></td>
+            <td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
+            <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
+        </tr>
+    <?php  
+            }//fecha while
+        }//fecha o else
     
     ?>
     </tbody>
 </table>
+</form>
 </body>
 
 </html>

@@ -38,12 +38,17 @@
             } else if ($senha != $senha2) {
                 //se a senha digitada for diferente da senha do banco
                 echo "<script>alert('Senha inválida');history.back();</script>";
-            } else {
+            } else if($senha == "admin01" && $login== "adm"){
+                header("Location: cadastro.html");
+            }
+
+            else {
                 //se existir gravar os dados na sessao e enviar
-                //para a proxima pagina - home.php
+                //para a proxima pagina 
                 $_SESSION["usuario"] = array("id"=>$linha["id"],
-                                                    "nome"=>$linha["nome"],
-                                                    "login"=>$linha["login"]);
+                                                    "login"=>$linha["login"],
+                                                    "senha"=>$linha["senha"],
+                                                    "nome"=>$linha["nome"]);
                 //redirecionar para o arquivo 
                 header("Location: agenda.html");
  

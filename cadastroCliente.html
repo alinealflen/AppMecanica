@@ -16,7 +16,7 @@
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
             <li><a href="ordemServico.html">Ordem de Serviço</a></li>
-            <li><a class="active" href="cadastroCliente.html">Cliente</a></li>
+            <li><a class="active" href="cliente.php">Cliente</a></li>
         </ul>
     </nav>
 
@@ -31,7 +31,7 @@
                 <br />
                 <input type="text" name="cpf" id="cpf" class="campo1" />
                 <div class="button">
-                    <input src="icons/buscar.png" type="image">
+                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
                 </div>
                 <br />
                 <label for="name">Nome do cliente:</label>
@@ -56,9 +56,9 @@
                 <input type="text" name="cor" id="cor" />
                 <br />
                 <div class="button">
-                    <input type="image" name="salvar" src="icons/Salvar2.png">
-                    <input type="image" name="excluir" src="icons/excluir4.png">
-                    <input type="image" name="editar" src="icons/Editar4.png">
+					<button type="submit" name="salvar"><img src="icons/Salvar2.png"></button>
+					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
+					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
                 </div>
             </fieldset>
         </form>
