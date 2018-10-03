@@ -2,8 +2,12 @@
 
     //conectar no banco de dados - incluir o arquivo do banco
     
+
 if($_POST){
 
+    
+
+    if (isset($_POST["salvar"])) {
 
         include "conecta.php";
 
@@ -14,8 +18,9 @@ if($_POST){
     $modelo = trim($_POST["modelo"]);
     $aro = trim($_POST["aro"]);
     $cor = trim($_POST["cor"]);
-
+    
    
+
     // para validar os campos em branco.
     if (empty($nome)) {
         //se o login estiver em branco exibe esta mensagem: "preencha o login"
@@ -52,9 +57,10 @@ if($_POST){
          echo "<script>alert('Cliente cadastrado');window.location.href='ordemServico.html';</script>";
 
         }
-
-
-
+    }
+    elseif(isset($_POST["excluir"])){
+    echo "<script>alert('Excluir);history.back();</script>";
     }
 
+}
 ?> 

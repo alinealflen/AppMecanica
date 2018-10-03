@@ -15,7 +15,7 @@
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
             <li><a class="active" href="ordemServico.html">Ordem de Serviço</a></li>
-            <li><a href="cadastroCliente.html">Cadastrar Cliente</a></li>
+            <li><a href="cliente.php">Cliente</a></li>
         </ul>
     </nav>
 
@@ -24,16 +24,18 @@
     <h1 id="titulo">Ordem de Serviço</h1>
 
     <div id=form4>
-        <form>
+        <form method="POST" action="buscaCliente.php">
             <fieldset id=borda>
                 <label for="cpf">CPF: </label>
                 <br />
-                <input type="text" name="cpf" id="cpf" />
-                <button type="submit">Buscar</button>
+                <input type="text" name="cpf" id="cpf" class="campo1" />
+                <div class="button">
+                    <input src="icons/buscar.png" type="image">
+                </div>
                 <br />
                 <label for="name">Nome do cliente:</label>
                 <br />
-                <input type="text" name="nome" id="nome" />
+                <input type="text" name="nome" id="nome"/>
                 <br />
                 <label for="telefone">Telefone:</label>
                 <br />
@@ -57,12 +59,30 @@
     <div id=form3>
         <form>
             <fieldset id=borda>
-                <label for="servico">Descrição do serviço:</label>
+                <label for="servico" class="campo1">OS nº:</label>
+				<input type="text" name="numOS" id="numOS" class="campo1" />
+				 <div class="button">
+                    <input src="icons/buscar.png" type="image">
+				</div>
+				<br />
+                <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->
+				<label for="cor">Mão de Obra R$:</label>
+				<input type="text" name="mObra" id="mObra" />
+				<label for="cor">Peças R$:</label>
+				<input type="text" name="pecas" id="pecas" />
                 <br />
-                <textarea rows="5" cols="50" maxlength="500"></textarea>
-                <br />
+				<br />
+				<div>
+				<label for="total">Total R$:</label>
+				<input type="text" name="total" id="total" />
+				</div>
+				<br />
+				<textarea rows="5" cols="50" maxlength="500" placeholder="Digite a descrição dos serviços e peças acima..."></textarea>
                 <div class="button">
-                    <button type="submit">Emitir OS</button>
+                    <input type="image" src="icons/ordem.png">
+					<input src="icons/excluir4.png" type="image">
+					<input src="icons/Editar4.png" type="image">
+					<input type="image" src="icons/PDF.png">
                 </div>
             </fieldset>
         </form>
@@ -70,5 +90,15 @@
 
 </body>
 
+<!--  aqui inicia o php, apenas para exemplo
+    $num1 = $_POST["mObra"]; 
+    $num2 = $_POST["pecas"]; 
+    
 
+    $soma = $num1 + $num2 ;
+
+    echo "<div id='resultado'> $soma </div>?> 
+	dentro do value do text TOTAL vai o seguinte codigo php <php echo $soma?>
+	-->
+	
 </html>

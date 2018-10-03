@@ -1,12 +1,134 @@
 <?php
 
-include "conecta.php";
+   //conectar no banco de dados - incluir o arquivo do banco
+   include "conecta.php";
+   //pega as variaveis vindas do formulario
+   $cpf = trim($_POST["cpf"]);
 
-$cpf = trim($_GET["cpf"]);
+  //busca os dados do cliente no bd
+  $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
+   mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+   $result = mysqli_query($_SG['link'], $sql);
 
-$sql = "select nome,cpf,telefone,modelo,cor,aro from  cliente ;where cpf=$cpf"; 
-mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-$resultado = mysqli_fetch_array( $sql);
+  $dados = mysqli_fetch_array($result);
+
+if ($_POST && $dados!= null ) {
+    //conectar no banco de dados - incluir o arquivo do banco
+    //include "conecta.php";
+    //pega as variaveis vindas do formulario
+  //  $cpf = trim($_POST["cpf"]);
+   //busca os dados do cliente no bd
+  // $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
+    //mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+   // $result = mysqli_query($_SG['link'], $sql);
+
+  // $dados = mysqli_fetch_array($result);
+
+   $cpf = $dados['cpf'];
+   $nome = $dados['nome'];
+   $telefone = $dados['telefone'];
+   $aro = $dados['aro'];
+   $modelo = $dados['modelo'];
+   $cor = $dados['cor'];
+    }
+    else {
+        echo "<script>alert('Cliente não cadastrado');window.location.href='cadastroCliente.html';</script>";
+    }
 
 
-?>
+?> 
+
+ <html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ordem de serviço - World Bikes</title>
+    <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
+    <link href="css/fundo.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="fundo">
+    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+
+    <nav id="menu">
+        <ul>
+            <li><a href="agenda.html">Agenda</a></li>
+            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a class="active" href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="cliente.php">Cliente</a></li>
+        </ul>
+    </nav>
+
+    <hr style="background-color: #33c208">
+
+    <h1 id="titulo">Ordem de Serviço</h1>
+
+    <div id=form4>
+    <form method="POST" action="buscaCliente.php">
+            <fieldset id=borda>
+                <label for="cpf">CPF: </label>
+                <br />
+                <input type="text" name="cpf" id="cpf" value="<?php echo $cpf;?>" class="campo1" />
+                <div class="button">
+                    <input src="icons/buscar.png" type="image">
+                </div>
+                <br />
+                <label for="name">Nome do cliente:</label>
+                <br />
+                <input type="text" name="nome" id="nome" value="<?php echo $nome;?>" />
+                <br />
+                <label for="telefone">Telefone:</label>
+                <br />
+                <input type="text" name="telefone" id="telefone" value="<?php echo $telefone;?>" />
+                <br />
+                <label for="modelo">Modelo da bicicleta:</label>
+                <br />
+                <input type="text" name="modelo" id="modelo" value="<?php echo $modelo;?>"/>
+                <br />
+                <label for="aro">Aro da bicicleta: </label>
+                <br />
+                <input type="text" name="aro" id="aro" value="<?php echo $aro;?>"/>
+                <br />
+                <label for="cor">Cor da bicicleta:</label>
+                <br />
+                <input type="text" name="cor" id="cor" value="<?php echo $cor;?>" />
+                <br />
+            </fieldset>
+        </form>
+    </div>
+    <div id=form3>
+        <form>
+        <fieldset id=borda>
+                <label for="servico" class="campo1">OS nº:</label>
+				<input type="text" name="numOS" id="numOS" class="campo1" />
+				 <div class="button">
+                    <input src="icons/buscar.png" type="image">
+				</div>
+				<br />
+                <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->
+				<label for="cor">Mão de Obra R$:</label>
+				<input type="text" name="mObra" id="mObra" />
+				<label for="cor">Peças R$:</label>
+				<input type="text" name="pecas" id="pecas" />
+                <br />
+				<br />
+				<div>
+				<label for="total">Total R$:</label>
+				<input type="text" name="total" id="total" />
+				</div>
+				<br />
+				<textarea rows="5" cols="50" maxlength="500" placeholder="Digite a descrição dos serviços e peças acima..."></textarea>
+                <div class="button">
+                    <input type="image" src="icons/ordem.png">
+					<input src="icons/excluir4.png" type="image">
+					<input src="icons/Editar4.png" type="image">
+					<input type="image" src="icons/PDF.png">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+
+</html> 

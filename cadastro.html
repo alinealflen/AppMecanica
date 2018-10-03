@@ -17,7 +17,7 @@
             <li><a href="agenda.html">Agenda</a></li>
             <li><a class="active" href="cadastro.html">Cadastro</a></li>
             <li><a href="ordemServico.html">Ordem de Serviço</a></li>
-            <li><a href="cadastroCliente.html">Cadastrar Cliente</a></li>
+            <li><a href="cliente.php">Cliente</a></li>
         </ul>
         </nav>
 
@@ -29,9 +29,13 @@
         <form method="post" action="salvarFuncionario.php">
             <fieldset id=borda>
 
-                <label for="name">Nome:</label>
+                <label for="name">Nome:</label> 
+
                 <br />
-                <input type="text" name="nome" id="nome" />
+                <input type="text" name="nome" id="nome" class="campo1" />
+				<div class="button">
+                    <input src="icons/buscar.png" type="image">
+                </div>
                 <br />
                 <label for="login">Login: </label>
                 <br />
@@ -42,8 +46,11 @@
                 <input type="text" name="senha" id="senha" />
                 <br />
                 <div class="button">
-                    <button type="submit">Cadastrar</button>
+                    <input src="icons/Salvar2.png" type="image">
+					<input src="icons/excluir4.png" type="image">
+					<input src="icons/Editar4.png" type="image">
                 </div>
+				
             </fieldset>
         </form>
     </div>
