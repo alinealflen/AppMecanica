@@ -28,7 +28,7 @@
     <nav id="menu">
         <ul>
             <li><a href="agenda.html">Agenda</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
+            <li><a href="funcionario.php">Funcionários</a></li>
             <li><a href="ordemServico.html">Ordem de Serviço</a></li>
             <li><a class="active" href="cliente.php">Cliente</a></li>
         </ul>
