@@ -15,7 +15,7 @@
     <nav id="menu">
         <ul>
             <li><a href="agenda.html">Agenda</a></li>
-            <li><a class="active" href="cadastro.html">Cadastro</a></li>
+            <li><a href="funcionario.php">Funcionários</a></li>
             <li><a href="ordemServico.html">Ordem de Serviço</a></li>
             <li><a href="cliente.php">Cliente</a></li>
         </ul>
@@ -23,7 +23,7 @@
 
         <hr style="background-color: #33c208">
 
-    <h1 id="titulo">Cadastro de Usuario</h1>
+    <h1 id="titulo">Cadastro de Usuário - World Bikes</h1>
 
     <div id=form2>
         <form method="post" action="salvarFuncionario.php">
@@ -34,8 +34,9 @@
                 <br />
                 <input type="text" name="nome" id="nome" class="campo1" />
 				<div class="button">
-                    <input src="icons/buscar.png" type="image">
+                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
                 </div>
+        
                 <br />
                 <label for="login">Login: </label>
                 <br />
@@ -43,12 +44,12 @@
                 <br />
                 <label for="senha">Senha:</label>
                 <br />
-                <input type="text" name="senha" id="senha" />
+                <input type="password" name="senha" id="senha" />
                 <br />
                 <div class="button">
-                    <input src="icons/Salvar2.png" type="image">
-					<input src="icons/excluir4.png" type="image">
-					<input src="icons/Editar4.png" type="image">
+					<button type="submit" name="salvar"><img src="icons/Salvar2.png"></button>
+					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
+					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
                 </div>
 				
             </fieldset>
