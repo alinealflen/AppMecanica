@@ -47,7 +47,7 @@ if ($_POST) {
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Funcionário excluído!');window.location.href='cliente.php';</script>";
+		echo "<script>alert('Funcionário excluído!');history.back();</script>";
 	}//fecha i if  isset excluir
 	
 	if(isset($_POST['editar'])){
@@ -56,22 +56,17 @@ if ($_POST) {
         $login = ($_POST["login"]);
         $senha = ($_POST["senha"]);
 	
-		$sql = "UPDATE usuario SET nome='$nome', login='$login', senha='$senha' where nome='$nome'";
+		$sql = "UPDATE usuario SET nome='$nome', login='$login', senha='$senha' where nome='$cpf'";
 		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
 		//atualizando dados no banco
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Funcionário atualizado');window.location.href='ordemServico.html';</script>";
+		echo "<script>alert('Cliente atualizado');history.back();</script>";
 	
 	}//fecha o if editar
 
 
-
-
-
-
-
-    }// fehca o if post
+}// fehca o if post
 
 ?> 
