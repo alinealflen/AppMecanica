@@ -7,7 +7,7 @@
     if (isset($_POST['buscar'])){
 
     $nome = ($_POST["nome"]);
-    $sql = "select nome from  cliente usuario nome like '$nome%'";//UPPER(nome) like '$nome'% order by nome asc"; 
+    $sql = "select nome from usuario where nome like '$nome%'";//UPPER(nome) like '$nome'% order by nome asc"; 
     mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
     $result = mysqli_query($_SG['link'], $sql);
     }
@@ -68,7 +68,7 @@
   }//fecha if
     else{
     include "conecta.php";
-    $sql = "select nome from  usuario ";//UPPER(nome) like '$nome'% order by nome asc"; 
+    $sql = "select nome from  usuario where id>1";//UPPER(nome) like '$nome'% order by nome asc"; 
     mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
     $result = mysqli_query($_SG['link'], $sql);
         while($aux = mysqli_fetch_assoc($result)){
