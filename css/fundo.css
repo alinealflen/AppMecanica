@@ -1,3 +1,4 @@
+/*FUNDO DE TODAS AS PÁGINAS*/
 #fundo{
 
     font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -11,13 +12,13 @@
  
 
 /*margin: auto para sempre ficar no centro  */
- 
+ /*LINHA DE SEPARAÇÃO TODAS AS PAGINAS*/
 
 hr {
     height: 5px;
     background-color:#33c208;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu ul {
     padding:0px;
     margin:0px;
@@ -26,15 +27,15 @@ hr {
     background-color: #000000;
     list-style-type: none;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li {
     float: right;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li a {
     display: block;
     color: #ffffff;
@@ -42,19 +43,180 @@ hr {
     padding: 14px 16px;
     text-decoration: none;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 .active {
     background-color: #33c208;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li a:hover {
     background-color: #33c208
 }
-
+/*TÍTULO TODAS AS PÁGINAS*/
 #titulo {
     text-align: center;
     font-family: 'Lucida Sans';
 	/*text-shadow: white 0.01em 0.01em 0.1em /*sombra*/ 
 	text-shadow:-1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -1px white; /*contorno*/
 }
+/*FORMULÁRIO DA PÁGINA DE LOGIN*/
+#form1 {
+    width: 25%;
+    height:50%;
+    padding-top: 30px; 
+    padding-left: 37%;
+    float:left;
+    
+}
+/* FORMULÁRIO CADASTRO CLIENTE E CADASTRO FUNCIONÁRIO, BUSCA USUARIO, */
+#form2 {
+    width: 24%;
+    height:5%;
+    padding-left: 39%;
+    padding-bottom: 10%;
+    float:left;
+}
+/*SEGUNDO DORMULÁRIO DA ORDEM DE SERVIÇO */
+#form3 {
+    width: 33%;
+    height:15%;
+    padding-left: 53%;
+    /*padding-top: 5%;*/
+    /*padding-bottom: 10%;*/
+    float:left;
+}
+/*PRIMEIRO FORMULÁRIO DA ORDEM DE SERVIÇO BUSCA CLIENTE E BUSCA CLIENTE 2*/
+#form4 {
+    width: 23%;
+    height:5%;
+    padding-left: 30%;
+    padding-bottom: 0%;  
+}
+/*BORDA DOS FORMULÁRIOS*/
+#borda{
+    border-radius: 1em;
+    background-color: white;
+}
+/*LOGO DE TODAS AS PÁGINAS*/
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    display: block;
+    
+}
+/*TABELA DA PÁGINA AGENDA*/
+.tabelaPrincipal{
+    margin:auto;
+    border-width: medium;
+    border-style: solid;
+    /*border-radius: 80px 80px 80px 80px;*/
+    border-color: #0B6121;
+    background-color: beige;
+	}
 
+/*LINHAS DO MEIO DAS TABELAS*/
+#tabela, #tabela0, #tabela1,#tabela2,#tabela3,#tabela4,#tabela5,#tabela6,#tabela7,#tabela8,#tabela9,#tabela10,#tabela11, #tabela12 {
+    /*margin:auto;*/
+    border-width: 2px;
+    border-style: solid;
+    /*border-radius: 20px 0px 0px 0px;*/
+    border-color: white;
+    background-color: #F2FBEF;
+}
+
+
+/*ULTIMA LINHA DA TABELA E PRIMEIRA COLUNA - AGENDA*/
+
+/*ULTIMA LINHA DA TABELA E ULTIMA COLUNA - AGENDA*/
+
+/*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
+.campo1{
+	float:left ;
+}
+
+/*DEFINE OS TAMANHOS DOS INPUTS DE ORDEM DE SERVICO*/
+#precos {
+    width: 50px;
+}
+/*TABELA LISTA FUNCIONARIOSS E CLIENTES*/
+#tabelaLista{
+    margin:auto;
+    border-width: thin;
+    border-style: solid;
+   /* border-radius: 40px 40px;*/
+    border-color: #33c208;
+    background-color: beige;
+}
+/*TODOS OS BOTÕES*/
+button{
+	background: transparent;
+	/*bolder-size: thin;*/
+	 border-bottom: 0px;
+     border:none!important
+}
+/*IMPUT SEM BORDA E SEM SOBRA DAS TABELAS DE LISTAS*/
+#input{
+    background: transparent;
+	/*bolder-size: thin;*/
+	/*border-bottom: 0px;*/
+     border:none!important
+}
+#inputAgenda{
+    background: transparent;
+	color: #0B6121;
+	font-size: 10pt;
+    border:none!important
+	 
+}
+#rodape{
+	padding-top: 20px;	
+}
+/*CARD AGENDA*/
+ .card {
+  /*background-image: url(icons/postit.png);*/
+  border-color: #33c208;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 20pt;
+  width:  4.5em;
+  height: 4em;
+  /*float: left;*/
+ /* position: relative;
+  top: 30px;
+  left: 800px;*/
+  
+}
+
+/*-------------------------------------------------- RESPONSIVO----------------------------------------------------------------------------------------------------------*/
+@media (min-width: 1200px) { 
+	#rodape{
+	padding-top: 522px;
+	}
+	#form3{
+	 padding-top: 280px;
+	 padding-left: 38%;
+	 width: 25%
+	}
+	#form4{
+	 width: 10.5%;
+	 padding-left: 45%;
+	}
+	#form2{
+	 width: 11%;
+	 padding-left: 45%;
+	}
+	#form1{
+	 width: 10.5%;
+	 padding-left: 45%;
+	}
+}
+@media (max-width: 575.98px) { 
+	#form3{
+	 padding-top: 280px;
+	 padding-left: 30%;
+	 width: 50%
+	}
+	#form4{
+	 width: 28%
+	}
+}

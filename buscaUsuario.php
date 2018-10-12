@@ -43,7 +43,7 @@ if ($_POST && $dados!= null ) {
         <ul>
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="funcionario.php">Funcionários</a></li>
-            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a href="cliente.php">Cliente</a></li>
         </ul>
         </nav>
@@ -83,6 +83,7 @@ if ($_POST && $dados!= null ) {
             </fieldset>
         </form>
     </div>
+
 </body>
 
 </html>

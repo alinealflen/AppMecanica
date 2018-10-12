@@ -2,12 +2,34 @@
 
 <html>
   <head>
+
+    
+
     <meta charset="utf-8">
     <title>World Bikes - Agenda</title>
-
+	
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" > 
     <link rel="stylesheet" href="css/fundo.css" type="text/css">
-    <link rel="stylesheet" href="css/ordemstyle.css" type="text/css">
-
+	<!--Função js que arrasta e solta-->
+	<script type="text/javascript">
+function allowDrop(ev)
+{
+ev.preventDefault();
+}
+  
+function drag(ev)
+{
+ev.dataTransfer.setData("Text",ev.target.id);
+}
+  
+function drop(ev, input)
+{
+var data = ev.dataTransfer.getData("Text");
+ev.target.appendChild(document.getElementById(data));
+ev.preventDefault();
+}
+</script>
+<!---->
   </head>
 
   <body id="fundo">
@@ -26,62 +48,138 @@
 
     <h1 id="titulo">Agenda</h1>
 
-    <table id="tabela" width="800" cellpadding="30" ;>
+    <table width="800" cellpadding="30" class="tabelaPrincipal" ;>
       <thead>
         <tr> <!--Linha da tabela-->
-            <th id="tSegunda">Segunda </th> <!--Coluna da tabela-->
-            <th id="tabela2">Terça </th>
-            <th id="tabela2">Quarta </th>
-            <th id="tabela2">Quinta </th>
-            <th id="tabela2">Sexta </th>
-            <th id="tSabado">Sábado </th>
+			<th id="tabela">Horário </th> <!--Coluna da tabela-->
+            <th id="tabela">Segunda </th> <!--Coluna da tabela-->
+            <th id="tabela">Terça </th>
+            <th id="tabela">Quarta </th>
+            <th id="tabela">Quinta </th>
+            <th id="tabela">Sexta </th>
+            <th id="tabela">Sábado </th>
         </tr>
       </thead>
+	
       <tbody>
         <tr>
-            <td id="tabela2">Bike 03 </td>
-            <td id="tabela2">Bike 15 </td>
-            <td id="tabela2">Bike 27 </td>
-            <td id="tabela2">Bike 87 </td>
-            <td id="tabela2">Bike 89 </td>
-            <td id="tabela2">Bike 07 </td>
+			 <td id="tabela" ><b>08:30</b></td>
+			
+            <td id="tabela0" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+				<input type="text" name="numOS" id="input0" value="OS030" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 
+			</td>	
+			
+            <td id="tabela1" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+				<input type="text" name="numOS" id="input1" value="OS040" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 
+			</td>
+			
+           <td id="tabela2" ondrop="drop(event,this)" ondragover="allowDrop(event)">	
+				<input type="text" name="numOS" id="input2" value="OS077" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  /> 		
+			</td>
+			
+           <td id="tabela3" ondrop="drop(event,this)" ondragover="allowDrop(event)">				
+				<input type="text" name="numOS" id="input3" value="OS090" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 				
+			</td>
+			
+			<td id="tabela4" ondrop="drop(event,this)" ondragover="allowDrop(event)">				
+				<input type="text" name="numOS" id="input4" value="OS089" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 				
+			</td>
+			
+			<td id="tabela5" ondrop="drop(event, this)" ondragover="allowDrop(event)">				
+				<input type="text" name="numOS" id="input5" value="OS081" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 				
+			</td>
+			
         </tr>
-        <tr>
-            <td id="tabela2">Bike 11 </td>
-            <td id="tabela2">Bike 22 </td>
-            <td id="tabela2">Bike 33 </td>
-            <td id="tabela2">Bike 44 </td>
-            <td id="tabela2">Bike 55 </td>
-            <td id="tabela2">Bike 66 </td>
-        </tr>
+		
+		<tr>
+			<td id="tabela" ><b>09:30</b></td>
+			
+			<td id="tabela6" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+				<div class="card" id="input6" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">
+				
+					<input type="text" name="numOS"  value="OS000" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Mariana Alflen" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Trocar Freios" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Bike Caloi Azul" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Entrega 17/10" readonly="true" id="inputAgenda" /> 
+					
+				</div>
+			</td>	
+			
+            <td id="tabela7" ondrop="drop(event,this)" ondragover="allowDrop(event)">
+				<div class="card" id="input7" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">
+				
+					<input type="text" name="numOS"  value="OS015" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Sarah Emanuela" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Trocar pneus" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Bike infantil rosa" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Entrega 19/10" readonly="true" id="inputAgenda" /> 
+					
+				</div>
+			</td>
+			
+           <td id="tabela8" ondrop="drop(event,this)" ondragover="allowDrop(event)">	
+				<div class="card" id="input8" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">
+				
+					<input type="text" name="numOS"  value="OS077" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Nicolas Rodolfo" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Manutenção geral" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Bike SPZ Preta" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Entrega 19/10" readonly="true" id="inputAgenda" /> 
+					
+				</div>
+			</td>
+			
+           <td id="tabela9" ondrop="drop(event,this)" ondragover="allowDrop(event)">				
+				<div class="card" id="input9" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">
+				
+					<input type="text" name="numOS"  value="OS077" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Rafael Herter" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Regular suspensão" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Bike heroi cinza" readonly="true" id="inputAgenda" /> 
+					<input type="text" name="numOS"  value="Entrega 20/10" readonly="true" id="inputAgenda" /> 
+					
+				</div>				
+			</td>
+			
+			<td id="tabela10" ondrop="drop(event,this)" ondragover="allowDrop(event)">				
+				<input type="text" name="numOS" id="input10" value="OS027" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 				
+			</td>
+			
+			<td id="tabela11" ondrop="drop(event, this)" ondragover="allowDrop(event)">				
+				<input type="text" name="numOS" id="input11" value="OS017" readonly="true" class="card" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)"/> 				
+			</td>
+		</tr>
+		<!-- o disable não permite efetutar ações no campo input e o readonly apenas bloqueia para não poder editar o campo input -->
       </tbody>
-      <tfoot><!--Rodapé da tabela-->
+      <tfoot>
         <tr>
-            <td colspan="6">Mecanico: Fulano</td>
+            <td colspan="7" id="tabela" >Mecanico: Fulano</td>
             
           <tr>
       </tfoot>
   </table>
  <!-- <hr style="background-color: #33c208"> -->
 
-    <h1 id="titulo">Orçamentos</h1>
+<!--     <h1 id="titulo">Orçamentos</h1>
 
-    <table id="tabela" width="600" cellpadding="20" ;>
-      <thead>
-        <tr> <!--Linha da tabela-->
-            <th id="tSegunda">Aprovados </th> <!--Coluna da tabela-->
+    <table width="600" cellpadding="20" class="tabela";>
+      <thead >
+        <tr> <!--Linha da tabela
+            <th id="tSegunda">Aprovados </th> <!--Coluna da tabela
             <th id="tabela2">Em espera </th>
             <th id="tSabado">Refazer </th>
             <!--<th id="tabela2">Quinta </th>
             <th id="tabela2">Sexta </th>
-            <th id="tSabado">Sábado </th> -->
+            <th id="tSabado">Sábado </th> 
         </tr>
       </thead>
       <tbody>
         <tr>
-            <td id="tabela2">Bike 03 </td> 
-            <td id="tabela2">Bike 15 </td>
-            <td id="tabela2">Bike 27 </td>
+            <td id="tabela3" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">Bike 03 </td> <!--Arrasta e solta
+            <td id="tabela4" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">Bike 15 </td>
+            <td id="tabela5" draggable="true" ondragstart="drag(event)"  ondrop="drop(event)" ondragover="allowDrop(event)">Bike 27 </td>
+	<!--		<td id="tabela2" ondrop="drop(event)" ondragover="allowDrop(event)">Bike destino</td>Arrasta e solta
         </tr>
         <tr>
             <td id="tBaixo">Bike 11 </td>
@@ -90,7 +188,17 @@
         </tr>
       </tbody>
 
-  </table>
+  </table> -->
+
+  <footer class="page-footer font-small elegant-color-dark pt-10" id="rodape" > 
+
+    <div class="footer-copyright text-left py-3" style="background-color: black; color: white; padding-left: 10px">© 2018 World Bikes
+      <a href="https://www.worldbikes.com.br" target="blank"> Worldbikes.com</a>
+
+      <div style="float: right; padding-right: 10px" href="https://web.whatsapp.com/"><a href="https://web.whatsapp.com/" target="blank"><img src="icons/whats.png" ></a>(47) 99714-5899 | (47) 3273-8431</div>
+
+  </footer>
+
  
   </body>
 

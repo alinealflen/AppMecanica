@@ -17,7 +17,8 @@
 <head>
     <meta charset="utf-8">
     <title>Area Cliente - World Bikes</title>
-    <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
+   
+   
     <link href="css/fundo.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -80,7 +81,7 @@
         <tr>
             <td id="tabela2"><?php echo $aux["nome"];?></td>
             <td id="tabela2"><?php echo $aux["telefone"];?></td>
-            <td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
+            <td id="tabela2"><input type="text" name="cpf" id="input" value="<?php echo $aux["cpf"];?>"></td>
             <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
         </tr>
     <?php  
@@ -91,6 +92,7 @@
     </tbody>
 </table>
 </form>
+
 </body>
 
 </html>
