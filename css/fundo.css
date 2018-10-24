@@ -26,6 +26,7 @@ hr {
     overflow: hidden;
     background-color: #000000;
     list-style-type: none;
+	
 }
 /*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
@@ -49,10 +50,15 @@ hr {
 }
 /*MENU TODAS AS PÁGINAS*/
 #menu li a:hover {
-    background-color: #33c208
+    background-color: #33c208;
+	-moz-transition: all 1.0s ease;
+			-webkit-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+	
 }
 /*TÍTULO TODAS AS PÁGINAS*/
-#titulo {
+#titulo, #segunda, #terca, #quarta, #quinta, #sexta, #sabado {
     text-align: center;
     font-family: 'Lucida Sans';
 	/*text-shadow: white 0.01em 0.01em 0.1em /*sombra*/ 
@@ -111,24 +117,13 @@ hr {
     border-style: solid;
     /*border-radius: 80px 80px 80px 80px;*/
     border-color: #0B6121;
-    background-color: beige;
+    background-color:#F2FBEF;
 	}
-
-/*LINHAS DO MEIO DAS TABELAS*/
-#tabela, #tabela0, #tabela1,#tabela2,#tabela3,#tabela4,#tabela5,#tabela6,#tabela7,#tabela8,#tabela9,#tabela10,#tabela11, #tabela12 {
-    /*margin:auto;*/
-    border-width: 2px;
+.linhasColuna{
+	border-width: 2px;
     border-style: solid;
-    /*border-radius: 20px 0px 0px 0px;*/
-    border-color: white;
-    background-color: #F2FBEF;
+	border-color: white;
 }
-
-
-/*ULTIMA LINHA DA TABELA E PRIMEIRA COLUNA - AGENDA*/
-
-/*ULTIMA LINHA DA TABELA E ULTIMA COLUNA - AGENDA*/
-
 /*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
 .campo1{
 	float:left ;
@@ -170,6 +165,11 @@ button{
 }
 #rodape{
 	padding-top: 20px;	
+	position: fixed;
+	/*right: 0;*/
+	top: 85%;
+	width: 136em;
+	margin-top: -0.5em;
 }
 /*CARD AGENDA*/
  .card {
@@ -183,14 +183,149 @@ button{
   /*float: left;*/
  /* position: relative;
   top: 30px;
-  left: 800px;*/
-  
+  left: 800px;*/ 	
+    background-color: white;
 }
-
+/*-------------------MENU LATERAL ------------------------------------------*/
+/* regra para o box-sizing */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+/* regra para o clear float */
+.cf:before,
+.cf:after {content: " ";display: table;}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+body {
+	margin-left:55px; /* espaço à esquerda para a barra vertical vísivel do menu */
+	font:  62.5%/1.2 Verdana, Helvetica, Arial, sans-serif;
+	}
+	#lateral {
+	padding:0 50px 0 0;
+	-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+	font-size:1.2em;
+	background:rgb(44,62,80);
+	background-image: -moz-linear-gradient(135deg, rgb(3,8,12), rgb(16,57,79));
+     background-image: -webkit-linear-gradient(135deg, rgb(3,8,12), rgb(16,57,79));
+      background-image: -o-linear-gradient(135deg, rgb(3,8,12), rgb(16,57,79) );
+       background-image: -ms-linear-gradient(135deg, rgb(3,8,12), rgb(16,57,79));
+        background-image: linear-gradient(135deg, rgb(3,8,12), rgb(16,57,79));
+	height:100%;
+	overflow:hidden;
+	width:370px; 
+	position:fixed;
+	top:0;
+	left:-320px;
+	}
+#lateral:before {
+	z-index:1000;
+	content: url(icone-menu.png);
+	font-size:4em;
+	color:white;
+	position:fixed;
+	left:4px;
+	top:45px;
+	}
+#lateral:hover:before, #lateral:focus:before {
+left:-500px
+	}
+#lateral:hover, #lateral:focus,  #lateral:active  {
+	overflow-y:scroll;
+	-moz-transform: translate(320px, 0);
+		-webkit-transform: translate(320px, 0);
+			-o-transform: translate(320px, 0);
+				transform: translate(320px, 0);
+	padding-right:0;
+	}	
+	#lateral .box {
+	list-style-type:none;
+	margin-bottom:1em;
+	padding-bottom:1em;
+	}
+#lateral h3 {
+	display:inline-block;
+	font-weight:bold;
+	font-size:1.6em;
+	font-style:normal;
+	padding-bottom:0.2em;
+	margin: 2em 0 2em 0.81em;
+	color:rgb(255,255,255);
+	border-bottom: 4px solid #33c208;
+	}
+#menuLateral {
+	font-style:italic;
+	position:relative;
+	font-size:1.0em;
+	margin:1em 0 1em -1em;
+	padding:0;
+	}
+#menuLateral li {padding:0; margin:0;}
+#menuLateral li a,  #menuLateral li a:link {
+	font-size:1.2em;
+	color:rgb(255,255,255);
+	text-decoration: none;
+	padding: 0.8em 0 0.8em 1em;
+	display: block;
+	-moz-transition: all 1.2s ease;
+			-webkit-transition: all 1.2s ease;
+				-o-transition: all 1.2s ease;
+					transition: all 1.2s ease;
+	}
+#menuLateral li a:hover {
+	color:rgb(255,255,255);
+	background-color:#33c208; /*rgba(000,255,255,0.2);*/
+	-moz-transition: all 0.5s ease;
+			-webkit-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+	}
 /*-------------------------------------------------- RESPONSIVO----------------------------------------------------------------------------------------------------------*/
+@media (max-width: 500px) {
+body {margin-left:0;background-size:100% 28em!important;}
+#lateral {
+	padding:0;
+	-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+	font-size:1.2em;
+	height:100%;
+	overflow:auto;
+	width:100%; 
+	position:static;
+	top:0;
+	left:0;
+	}
+#lateral:before {
+	z-index:1000;
+	width:0;
+	text-align:center;
+	content: "";
+	font-size:0;
+	color:white;
+	position:static;
+	top:0;
+	left:0;
+	display:inline-block; 
+	}
+#lateral:hover, #lateral:focus {
+	overflow:scroll;
+	-moz-transform: none;
+		-webkit-transform: none;
+			-o-transform:none;
+				transform:none;
+	}
+#menuLateral li a {border-bottom:1px solid #ccc;}
+#menuLateral li:first-child a {border-top:1px solid #ccc;}	
+}
 @media (min-width: 1200px) { 
 	#rodape{
-	padding-top: 522px;
+	padding-top: 109px;
 	}
 	#form3{
 	 padding-top: 280px;
