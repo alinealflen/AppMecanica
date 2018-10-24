@@ -59,7 +59,7 @@
         while($aux = mysqli_fetch_assoc($result)) { 
     ?>
      <tr>
-        <td id="tabela2"><input class="campo2" type="text" name="nome" value="<?php echo $aux["nome"];?>"></td>
+        <td id="tabela2"><input id="input" readonly="true" type="text" name="nome" value="<?php echo $aux["nome"];?>"></td>
         <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
     </tr>
     <?php
