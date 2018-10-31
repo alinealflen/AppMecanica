@@ -46,7 +46,7 @@ if ($_POST && $dados!= null ) {
 </head>
 
 <body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+    <img src="css/img/logo.png" alt="World Bikes" id="logo">
 
     <nav id="menu">
         <ul>

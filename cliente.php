@@ -24,7 +24,7 @@
 </head>
 
 <body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+    <img src="css/img/logo.png" alt="World Bikes" width="10%">
 
     <nav id="menu">
         <ul>
