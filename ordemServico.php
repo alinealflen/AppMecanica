@@ -66,7 +66,7 @@ if ($_POST && $dados!= null ) {
             <fieldset id=borda>
                 <label for="cpf">CPF: </label>
                 <br />
-                <input type="text" name="cpf" id="cpf" value="<?php echo $cpf;?>" class="campo1" />
+                <input type="text" name="cpf" id="cpf" class="campo1" value="<?php echo $cpf;?>"  />
                 <div class="button">
                 <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
                 </div>
@@ -101,7 +101,7 @@ if ($_POST && $dados!= null ) {
                 <input type="text" name="numOS" id="numOS" class="campo1" />
                 <input type="hidden" name="cpf" id="cpf" value="<?php echo $cpf;?>" />
 				 <div class="button">
-                    <input src="icons/buscar.png" type="image">
+                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>	
 				</div>
 				<br />
                 <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->

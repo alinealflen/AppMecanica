@@ -48,36 +48,38 @@ if($_POST){
 
 	}//fecha o if  isset salvar
 	
-/*	if(isset($_POST['excluir'])){
-		$cpf = trim($_POST["cpf"]);
-		$sql = "DELETE FROM cliente WHERE cpf='$cpf'";
+	if(isset($_POST['excluir'])){
+		$numOS = ($_POST["idOrdem"])
+		$sql = "DELETE FROM ordemServico WHERE idOrdem='$numOS'";
 		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
 		//excluindo dados no banco
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Cliente excluído!');window.location.href='cliente.php';</script>";
+		echo "<script>alert('Ordem de serviço excluída!');window.location.href='cliente.php';</script>";
 	}//fecha i if  isset excluir
 	
 	if(isset($_POST['editar'])){
 		
-		$nome = ($_POST["nome"]);
 		$cpf = trim($_POST["cpf"]);
-		$telefone = trim($_POST["telefone"]);
-		$modelo = trim($_POST["modelo"]);
-		$aro = trim($_POST["aro"]);
-		$cor = trim($_POST["cor"]);
+		$valorMO = floatval($_POST["valorMO"]);
+		$valorPecas = floatval($_POST["valorPecas"]);
+		$valorTotal = floatval($_POST["valorTotal"]);
+		$descricaoServico = ($_POST["descricaoServico"]);
 	
-		$sql = "UPDATE cliente SET nome='$nome', telefone='$telefone', modelo='$modelo', aro='$aro', cor='$cor' where cpf='$cpf'";
+		$sql = "UPDATE ordemServico SET cpfCliente='$cpf', statusOrdem='$statusOrdem', valorMO='$valorMO', valorPecas='$valorPecas',
+					valorTotal='$valorTotal', descricaoServico='$descricaoServico' where idOrdem='$numOS'";
 		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
 		//atualizando dados no banco
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Cliente atualizado');window.location.href='ordemServico.html';</script>";
+		echo "<script>alert('Ordem de serviço atualizada');window.location.href='ordemServico.html';</script>";
 	
 	}//fecha o if editar
-*/	
+	if (isset($_POST['buscar'])){
+		$cpf = trim($_POST["cpf"]);
+	}
 
 }//fecha o if POST
 
