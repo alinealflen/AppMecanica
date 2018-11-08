@@ -146,7 +146,7 @@ button{
 
 #rodape{
 	padding-top: 20px;	
-	position: fixed;
+	/*position: fixed;
 	/*right: 0;*/
 	top: 85%;
 	width: 136em;
