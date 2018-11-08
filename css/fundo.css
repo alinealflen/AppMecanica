@@ -103,9 +103,12 @@ hr {
 }
 /*LOGO DE TODAS AS PÁGINAS*/
 #logo {
+	padding-top: 1.5%;
+	padding-left: 1%;
+	padding-bottom: 1.5%;
     margin-right: auto;
     display: block;
-    width: 10%;
+    width: 200px;
 }
 
 /*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
