@@ -17,13 +17,14 @@
 <head>
     <meta charset="utf-8">
     <title>Area Cliente - World Bikes</title>
-    <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
+   
+   
     <link href="css/fundo.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+    <img src="css/img/logo.png" alt="World Bikes" width="10%">
 
     <nav id="menu">
         <ul>
@@ -46,51 +47,52 @@
     </form>
                
     <form method="post" action="buscaCliente2.php">
- <table id="tabelaLista" width="800" cellpadding="30";>
-      <thead>
-        <tr> <!--Linha da tabela-->
-            <th id="tabela2">Nome </th> <!--Coluna da tabela-->
-            <th id="tabela2">Telefone </th>
-            <th id="tabela2">CPF </th>
-        </tr>
-      </thead>
-      <tbody>
+		<table id="tabelaLista" width="800" cellpadding="30";>
+			<thead>
+				<tr> <!--Linha da tabela-->
+					<th id="tabela2">Nome </th> <!--Coluna da tabela-->
+					<th id="tabela2">Telefone </th>
+					<th id="tabela2">CPF </th>
+				</tr>
+			</thead>
+        <tbody>
 
-    <?php
-    if (isset($_POST['buscar'])) {
+		<?php
+			if (isset($_POST['buscar'])) {
 
-        while($aux = mysqli_fetch_assoc($result)) { 
-    ?>
-     <tr>
-        <td id="tabela2"><?php echo $aux["nome"];?></td>
-        <td id="tabela2"><?php echo $aux["telefone"];?></td>
-        <td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
-        <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
-    </tr>
-    <?php
-    }//fecha while //disabled="disabled"
-  }//fecha if
-    else{
-    include "conecta.php";
-    $sql = "select nome, cpf, telefone from  cliente ";//UPPER(nome) like '$nome'% order by nome asc"; 
-    mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-    $result = mysqli_query($_SG['link'], $sql);
-        while($aux = mysqli_fetch_assoc($result)){
-    ?>
-        <tr>
-            <td id="tabela2"><?php echo $aux["nome"];?></td>
-            <td id="tabela2"><?php echo $aux["telefone"];?></td>
-            <td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
-            <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
-        </tr>
+				while($aux = mysqli_fetch_assoc($result)) { 
+		?>
+			<tr>
+				<td id="tabela2"><?php echo $aux["nome"];?></td>
+				<td id="tabela2"><?php echo $aux["telefone"];?></td>
+				<td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
+				<td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
+			</tr>
+		<?php
+				}//fecha while //disabled="disabled"
+			}//fecha if
+			else{
+				include "conecta.php";
+				$sql = "select nome, cpf, telefone from  cliente ";//UPPER(nome) like '$nome'% order by nome asc"; 
+				mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+				$result = mysqli_query($_SG['link'], $sql);
+				while($aux = mysqli_fetch_assoc($result)){
+			?>
+				<tr>
+					<td id="tabela2"><?php echo $aux["nome"];?></td>
+					<td id="tabela2"><?php echo $aux["telefone"];?></td>
+					<td id="tabela2"><input type="text" name="cpf" id="input" value="<?php echo $aux["cpf"];?>"></td>
+					<td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
+				</tr>
     <?php  
             }//fecha while
         }//fecha o else
     
     ?>
-    </tbody>
-</table>
-</form>
+			</tbody>
+		</table>
+	</form>
+
 </body>
 
 </html>

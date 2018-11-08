@@ -3,109 +3,144 @@
 <html>
   <head>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <meta charset="utf-8">
     <title>World Bikes - Agenda</title>
-    
-    <link rel="stylesheet" href="css/fundo.css" type="text/css">
-    <link rel="stylesheet" href="css/ordemstyle.css" type="text/css">
+	
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" > 
+	<link href="fullcalendar/fullcalendar.css" rel="stylesheet" />
+	<link href="fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print' />
+	<script src="fullcalendar/lib/moment.min.js"></script>
+	<script src="fullcalendar/lib/jquery.min.js"></script>
+	<script src="fullcalendar/lib/jquery-ui.custom.min.js"></script>
+	<script src="fullcalendar/fullcalendar.min.js"></script>
+	<link rel="stylesheet" href="css/fundo.css" type="text/css">
+	
+	<!-- script de tradução -->
+    <script src='fullcalendar/lang/pt-br.js'></script>
 
-  </head>
+<script>
 
-  <body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+	$(document).ready(function() {
 
-    <nav id="menu">
+
+		/* initialize the external events
+		-----------------------------------------------------------------*/
+
+		$('#external-events .fc-event').each(function() {
+
+			// store data so the calendar knows to render an event upon drop
+			$(this).data('event', {
+				title: $.trim($(this).text()), // use the element's text as the event title
+				stick: true // maintain when user navigates (see docs on the renderEvent method)
+			});
+
+			// make the event draggable using jQuery UI
+			$(this).draggable({
+				zIndex: 999,
+				revert: true,      // will cause the event to go back to its
+				revertDuration: 0  //  original position after the drag
+			});
+
+		});
+
+
+		/* initialize the calendar
+		-----------------------------------------------------------------*/
+
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			events: 'eventos.php',  
+			editable: true,
+			droppable: true, // this allows things to be dropped onto the calendar
+			drop: function() {
+				// is the "remove after drop" checkbox checked?
+				if ($('#drop-remove').is(':checked')) {
+					// if so, remove the element from the "Draggable Events" list
+					$(this).remove();
+				}
+			}
+		});
+		//CADASTRA NOVO EVENTO
+            $('#novo_evento').submit(function(){
+                //serialize() junta todos os dados do form e deixa pronto pra ser enviado pelo ajax
+                var dados = jQuery(this).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "cadastrar_evento.php",
+                    data: dados,
+                    success: function(data)
+                    {   
+                        if(data == "1"){
+                            alert("Cadastrado com sucesso! ");
+                            //atualiza a página!
+                            location.reload();
+                        }else{
+                            alert("Houve algum problema.. ");
+                        }
+                    }
+                });                
+                return false;
+            });	
+
+
+	});
+
+</script>
+
+</head>
+<body id="fundo">
+    <img src="css/img/logo.png" alt="World Bikes"  id="logo">
+	
+	<nav id="menu">
         <ul>
             <li><a class="active" href="agenda.html">Agenda</a></li>
           <li><a href="funcionario.php">Funcionários</a></li> 
-            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a href="cliente.php">Cliente</a></li>
         </ul>
       </nav>
 
       <hr style="background-color: #33c208">
+	
+	<div id='wrap'>
 
-    <h1 id="titulo">Agenda</h1>
+		<div id='external-events'>
+			<h4>Ordens de Serviços</h4>
+			<div class='fc-event'>OS521</div>
+			<div class='fc-event'>OS325</div>
+			<div class='fc-event'>OS100</div>
+			<div class='fc-event'>OS789</div>
+			<div class='fc-event'>OS171</div>
+			<!--<p>
+				<input type='checkbox' id='drop-remove' />
+				<label for='drop-remove'>remove after drop</label>
+			</p>-->
+		</div>
 
-    <table id="tabela" width="800" cellpadding="30" ;>
-      <thead>
-        <tr> <!--Linha da tabela-->
-            <th id="tSegunda">Segunda </th> <!--Coluna da tabela-->
-            <th id="tabela2">Terça </th>
-            <th id="tabela2">Quarta </th>
-            <th id="tabela2">Quinta </th>
-            <th id="tabela2">Sexta </th>
-            <th id="tSabado">Sábado </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td id="tabela2">Bike 03 </td>
-            <td id="tabela2">Bike 15 </td>
-            <td id="tabela2">Bike 27 </td>
-            <td id="tabela2">Bike 87 </td>
-            <td id="tabela2">Bike 89 </td>
-            <td id="tabela2">Bike 07 </td>
-        </tr>
-        <tr>
-            <td id="tabela2">Bike 11 </td>
-            <td id="tabela2">Bike 22 </td>
-            <td id="tabela2">Bike 33 </td>
-            <td id="tabela2">Bike 44 </td>
-            <td id="tabela2">Bike 55 </td>
-            <td id="tabela2">Bike 66 </td>
-        </tr>
-      </tbody>
-      <tfoot><!--Rodapé da tabela-->
-        <tr>
-            <td colspan="6">Mecanico: Fulano</td>
-            
-          <tr>
-      </tfoot>
-  </table>
- <!-- <hr style="background-color: #33c208"> -->
+		<div id='calendar'></div>
 
-    <h1 id="titulo">Orçamentos</h1>
+		<div style='clear:both'></div>
+        <br/>
 
-    <table id="tabela" width="600" cellpadding="20" ;>
-      <thead>
-        <tr> <!--Linha da tabela-->
-            <th id="tSegunda">Aprovados </th> <!--Coluna da tabela-->
-            <th id="tabela2">Em espera </th>
-            <th id="tSabado">Refazer </th>
-            <!--<th id="tabela2">Quinta </th>
-            <th id="tabela2">Sexta </th>
-            <th id="tSabado">Sábado </th> -->
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-            <td id="tabela2">Bike 03 </td> 
-            <td id="tabela2">Bike 15 </td>
-            <td id="tabela2">Bike 27 </td>
-        </tr>
-        <tr>
-            <td id="tBaixo">Bike 11 </td>
-            <td id="tabela2">Bike 22 </td>
-            <td id="tBaixo2">Bike 33 </td>
-        </tr>
-      </tbody>
+	</div>
 
-  </table>
+  <footer class="page-footer font-small elegant-color-dark pt-10" id="rodape">
 
-  <footer class="page-footer font-small elegant-color-dark pt-10" style="padding-top: 20px">
 
-    <div class="footer-copyright text-left py-3" style="background-color: black; color: white; padding-left: 10px">© 2018 World Bikes
-      <a href="https://www.worldbikes.com.br" target="blank"> Worldbikes.com</a>
+    <div class="footer-copyright text-left py-3" style="background-color: black; color: white">© 2018 World Bikes
+      <a href="https://www.worldbikes.com.br" target="blank" > Worldbikes.com</a>
 
-      <a style="float: right; padding-right: 10px">(47) 99714-5899 | (47) 3273-8431</a>
-    </div>
+
+      <div style="float: right; padding-right: 10px" href="https://web.whatsapp.com/"><a href="https://web.whatsapp.com/" target="blank"><img src="icons/whats.png" ></a>(47) 99714-5899 | (47) 3273-8431</div>
 
   </footer>
+
  
- 
+
   </body>
 
 </html>

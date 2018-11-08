@@ -17,19 +17,18 @@
 <head>
     <meta charset="utf-8">
     <title>Area Funcionários - World Bikes</title>
-    <link href="css/ordemstyle.css" rel="stylesheet" type="text/css">
     <link href="css/fundo.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
+    <img src="css/img/logo.png" alt="World Bikes" width="10%">
 
     <nav id="menu">
         <ul>
             <li><a href="agenda.html">Agenda</a></li>
             <li><a class="active" href="funcionario.php">Funcionários</a></li>
-            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a href="cliente.php">Cliente</a></li>
         </ul>
     </nav>
@@ -60,7 +59,7 @@
         while($aux = mysqli_fetch_assoc($result)) { 
     ?>
      <tr>
-        <td id="tabela2"><input type="text" name="nome" id="cpf2" value="<?php echo $aux["nome"];?>"></td>
+        <td id="tabela2"><input id="input" readonly="true" type="text" name="nome" value="<?php echo $aux["nome"];?>"></td>
         <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
     </tr>
     <?php
@@ -85,6 +84,7 @@
     </tbody>
 </table>
 </form>
+
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+/*FUNDO DE TODAS AS PÁGINAS*/
 #fundo{
 
     font: 14px "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -8,16 +9,15 @@
     background-size: cover;
 }
 
- 
 
 /*margin: auto para sempre ficar no centro  */
- 
+ /*LINHA DE SEPARAÇÃO TODAS AS PAGINAS*/
 
 hr {
     height: 5px;
     background-color:#33c208;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu ul {
     padding:0px;
     margin:0px;
@@ -25,16 +25,17 @@ hr {
     overflow: hidden;
     background-color: #000000;
     list-style-type: none;
+	
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li {
     float: right;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li a {
     display: block;
     color: #ffffff;
@@ -42,19 +43,225 @@ hr {
     padding: 14px 16px;
     text-decoration: none;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 .active {
     background-color: #33c208;
 }
-
+/*MENU TODAS AS PÁGINAS*/
 #menu li a:hover {
-    background-color: #33c208
+    background-color: #33c208;
+	-moz-transition: all 1.0s ease;
+			-webkit-transition: all 0.5s ease;
+				-o-transition: all 0.5s ease;
+					transition: all 0.5s ease;
+	
 }
-
-#titulo {
+/*TÍTULO TODAS AS PÁGINAS*/
+#titulo, #segunda, #terca, #quarta, #quinta, #sexta, #sabado {
     text-align: center;
     font-family: 'Lucida Sans';
 	/*text-shadow: white 0.01em 0.01em 0.1em /*sombra*/ 
 	text-shadow:-1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -1px white; /*contorno*/
 }
+/*FORMULÁRIO DA PÁGINA DE LOGIN*/
+#form1 {
+    width: 25%;
+    height:50%;
+    padding-top: 30px; 
+    padding-left: 37%;
+    float:left;
+    
+}
+/* FORMULÁRIO CADASTRO CLIENTE E CADASTRO FUNCIONÁRIO, BUSCA USUARIO, */
+#form2 {
+    width: 24%;
+    height:5%;
+    padding-left: 39%;
+    padding-bottom: 10%;
+    float:left;
+}
+/*SEGUNDO DORMULÁRIO DA ORDEM DE SERVIÇO */
+#form3 {
+    width: 33%;
+    height:15%;
+    padding-left: 53%;
+    /*padding-top: 5%;*/
+    /*padding-bottom: 10%;*/
+    float:left;
+}
+/*PRIMEIRO FORMULÁRIO DA ORDEM DE SERVIÇO BUSCA CLIENTE E BUSCA CLIENTE 2*/
+#form4 {
+    width: 23%;
+    height:5%;
+    padding-left: 30%;
+    padding-bottom: 0%;  
+}
+/*BORDA DOS FORMULÁRIOS*/
+#borda{
+    border-radius: 1em;
+    background-color: white;
+}
+/*LOGO DE TODAS AS PÁGINAS*/
+#logo {
+    margin-right: auto;
+    display: block;
+    width: 10%;
+}
 
+/*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
+.campo1{
+	float:left ;
+}
+
+/*DEFINE OS TAMANHOS DOS INPUTS DE ORDEM DE SERVICO*/
+#precos {
+    width: 50px;
+}
+/*TABELA LISTA FUNCIONARIOSS E CLIENTES*/
+#tabelaLista{
+    margin:auto;
+    border-width: thin;
+    border-style: solid;
+   /* border-radius: 40px 40px;*/
+    border-color: #33c208;
+    background-color: beige;
+}
+/*TODOS OS BOTÕES*/
+button{
+	background: transparent;
+	/*bolder-size: thin;*/
+	 border-bottom: 0px;
+     border:none!important
+}
+/*IMPUT SEM BORDA E SEM SOBRA DAS TABELAS DE LISTAS*/
+#input{
+    background: transparent;
+	/*bolder-size: thin;*/
+	/*border-bottom: 0px;*/
+     border:none!important
+}
+
+#rodape{
+	padding-top: 20px;	
+	position: fixed;
+	/*right: 0;*/
+	top: 85%;
+	width: 136em;
+	margin-top: -0.5em;
+}
+	
+	/*CALENDARIO*/
+	#wrap {
+		width: 1100px;
+		margin: 0 auto;
+	}
+		
+	#external-events {
+		float: left;
+		width: 150px;
+		padding: 0 10px;
+		border: 1px solid #ccc;
+		background: #eee;
+		text-align: left;
+	}
+		
+	#external-events h4 {
+		font-size: 16px;
+		margin-top: 0;
+		padding-top: 1em;
+	}
+		
+	#external-events .fc-event {
+		margin: 10px 0;
+		cursor: pointer;
+	}
+		
+	#external-events p {
+		margin: 1.5em 0;
+		font-size: 11px;
+		color: #666;
+	}
+		
+	#external-events p input {
+		margin: 0;
+		vertical-align: middle;
+	}
+
+	#calendar {
+		float: right;
+		width: 900px;
+		background-color: rgba(255,255,255,0.8); /*o ultimo número refere-se a opacidade*/
+	}
+
+	
+/*-------------------------------------------------- RESPONSIVO----------------------------------------------------------------------------------------------------------*/
+@media (max-width: 500px) {
+
+#lateral {
+	padding:0;
+	-moz-transition: all 0.5s ease;
+		-webkit-transition: all 0.5s ease;
+			-o-transition: all 0.5s ease;
+				transition: all 0.5s ease;
+	font-size:1.2em;
+	height:100%;
+	overflow:auto;
+	width:100%; 
+	position:static;
+	top:0;
+	left:0;
+	}
+#lateral:before {
+	z-index:1000;
+	width:0;
+	text-align:center;
+	content: "";
+	font-size:0;
+	color:white;
+	position:static;
+	top:0;
+	left:0;
+	display:inline-block; 
+	}
+#lateral:hover, #lateral:focus {
+	overflow:scroll;
+	-moz-transform: none;
+		-webkit-transform: none;
+			-o-transform:none;
+				transform:none;
+	}
+#menuLateral li a {border-bottom:1px solid #ccc;}
+#menuLateral li:first-child a {border-top:1px solid #ccc;}	
+}
+@media (min-width: 1200px) { 
+	#rodape{
+	padding-top: 109px;
+	}
+	#form3{
+	 padding-top: 280px;
+	 padding-left: 38%;
+	 width: 25%
+	}
+	#form4{
+	 width: 10.5%;
+	 padding-left: 45%;
+	}
+	#form2{
+	 width: 11%;
+	 padding-left: 45%;
+	}
+	#form1{
+	 width: 10.5%;
+	 padding-left: 45%;
+	}
+}
+@media (max-width: 575.98px) { 
+	#form3{
+	 padding-top: 280px;
+	 padding-left: 30%;
+	 width: 50%
+	}
+	#form4{
+	 width: 28%
+	}
+}
