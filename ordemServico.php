@@ -32,9 +32,43 @@ if ($_POST && $dados!= null ) {
    $modelo = '';
    $cor =  '';
 }
-
-
+///--------------------------------------------------------------------------
+if(isset($_POST['buscar2'])){
+    //conectar no banco de dados - incluir o arquivo do banco
+    include "conecta.php";
+    //pega as variaveis vindas do formulario
+    $numOS = trim($_POST["numOS"]);
+ 
+   //busca os dados do cliente no bd
+    $sql = "select ordemServico.idOrdem, cliente.cpf, cliente.nome,
+    cliente.telefone, cliente.aro, cliente.modelo, cliente.cor from ordemServico, cliente where idOrdem=$numOS"; 
+    mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+    $result = mysqli_query($_SG['link'], $sql);
+    
+    if($result != null){
+    $idOrdem = $result['idOrdem'];
+    $cpf = $result['cpf'];
+    $nome = $result['nome'];
+    $telefone = $result['telefone'];
+    $aro = $result['aro'];
+    $modelo = $result['modelo'];
+    $cor = $result['cor'];
+    }
+     else {
+         echo "<script>alert('Ordem não encontrada');window.location.href='ordemServico.php';</script>";
+     }
+}
+else{ 
+   $cpf = '';
+   $nome ='';
+   $telefone = '';
+   $aro = '';
+   $modelo = '';
+   $cor =  '';
+   $idOrdem = '';
+}
 ?> 
+
 
 <html>
 
@@ -97,11 +131,12 @@ if ($_POST && $dados!= null ) {
     <div>
         <form id=form3 method="post" action="salvaOrdem.php">
             <fieldset id=borda>
+            <form method="post" action="">
                 <label for="servico" class="campo1">OS nº:</label>
-                <input type="text" name="numOS" id="numOS" class="campo1" />
+                <input type="text" name="numOS" id="numOS" class="campo1" value="<?php echo $idOrdem;?>" />
                 <input type="hidden" name="cpf" id="cpf" value="<?php echo $cpf;?>" />
 				 <div class="button">
-                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>	
+                    <img src="icons/buscar.png">	
 				</div>
 				<br />
                 <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->
@@ -113,7 +148,7 @@ if ($_POST && $dados!= null ) {
 				<br />
 				<div>
 				<label for="total">Total R$:</label>
-				<input type="text" name="valorTotal" id="precos" value="<?php echo $valorTotal;?>" />
+				<input type="text" name="valorTotal" id="precos" />
 				</div>
 				<br />
 				<textarea rows="5" cols="50" maxlength="500" name="descricaoServico" placeholder="Digite a descrição dos serviços e peças acima..."></textarea>
@@ -123,6 +158,7 @@ if ($_POST && $dados!= null ) {
 					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
 					<button type="submit" name="pdf"><img src="icons/PDF.png"></button>					
                 </div>
+            </form>
             </fieldset>
         </form>
     </div>
@@ -134,7 +170,8 @@ function soma(){
 
 var valorMO = document.getElementById("valorMO").value;
 var valorPecas = document.getElementById("valorPecas").value;
-document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) +parseFloat(valorPecas);
+document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) + parseFloat(valorPecas);
+return valorTotal;
 }
 </script>
 </html> 

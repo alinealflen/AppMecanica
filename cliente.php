@@ -58,18 +58,46 @@
         <tbody>
 
 		<?php
+		   /*<?php outra maneira de usar matriz
+ 
+// Uma matriz associativa
+$valor = array(
+    'Cor'           => array( 'Vermelho', 'Branco', 'Prata' ),
+    'Capacidade'    => array( '4GB', '8GB', '16GB' ),
+    'Interface'     => array( 'Windows', 'Mac', 'Linux' ),
+);
+ 
+// Esta linha printa 'Vermelho' na tela
+echo $valor['Cor'][0];
+ 
+//Coluna 'cor' e o ítem zero '0' desta coluna*/
+		// $arrayEmails[] = $row["campo_que_contem_o_email"];
 			if (isset($_POST['buscar'])) {
 
 				while($aux = mysqli_fetch_assoc($result)) { 
+				//while para pegar o cpf por linha, não ficar sempre atribuindo um valor a uma variável
+					$arrayClientes = array[
+					$aux['nome'] => array[$aux['cpf'], $aux['telefone']];
+					}//fecha while 
+					$i = 0;
+					$x = 0;
+				while(	$arrayClientes){
+				
 		?>
 			<tr>
-				<td id="tabela2"><?php echo $aux["nome"];?></td>
-				<td id="tabela2"><?php echo $aux["telefone"];?></td>
-				<td id="tabela2"><input type="text" name="cpf" id="cpf2" value="<?php echo $aux["cpf"];?>"></td>
+				<td id="tabela2"><?php echo$arrayClientes[$i];?></td>
+				<td id="tabela2"><?php echo $arrayClientes[$i[$x+1]];?></td>
+				<td id="tabela2"><input type="text" name="cpf" id="input" value="<?php echo $arrayClientes[$i[$x]];?>"></td>
 				<td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
 			</tr>
 		<?php
-				}//fecha while //disabled="disabled"
+				if ($x==1){
+					$x = 0;
+				}else{
+				$x= $x+1;
+				$i = $i+1;
+					}//fecha else
+				}//fecha while 
 			}//fecha if
 			else{
 				include "conecta.php";

@@ -49,8 +49,8 @@ if($_POST){
 	}//fecha o if  isset salvar
 	
 	if(isset($_POST['excluir'])){
-		$numOS = ($_POST["idOrdem"])
-		$sql = "DELETE FROM ordemServico WHERE idOrdem='$numOS'";
+		$numOS = ($_POST["idOrdem"]);
+		$sql = " DELETE FROM ordemServico WHERE idOrdem='$numOS'";
 		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
 		//excluindo dados no banco
 		mysqli_query($_SG['link'], $sql)
@@ -77,9 +77,9 @@ if($_POST){
 		echo "<script>alert('Ordem de serviço atualizada');window.location.href='ordemServico.html';</script>";
 	
 	}//fecha o if editar
-	if (isset($_POST['buscar'])){
-		$cpf = trim($_POST["cpf"]);
-	}
+	//if (isset($_POST['buscar2'])){
+	//	include "ordemServico.php";
+	//}
 
 }//fecha o if POST
 

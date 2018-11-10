@@ -54,7 +54,7 @@ if ($_POST && $dados!= null ) {
         <ul>
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
-            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a class="active" href="cliente.php">Cliente</a></li>
         </ul>
     </nav>

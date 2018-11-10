@@ -107,6 +107,11 @@ hr {
     display: block;
     width: 10%;
 }
+#logo2 {
+    margin-right: auto;
+    display: block;
+    width: 30%;
+}
 
 /*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
 .campo1{
@@ -237,15 +242,7 @@ button{
 	#rodape{
 	padding-top: 109px;
 	}
-	#form3{
-	 padding-top: 280px;
-	 padding-left: 38%;
-	 width: 25%
-	}
-	#form4{
-	 width: 10.5%;
-	 padding-left: 45%;
-	}
+
 	#form2{
 	 width: 11%;
 	 padding-left: 45%;

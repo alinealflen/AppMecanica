@@ -50,7 +50,7 @@ if($_POST){
 			mysqli_query($_SG['link'], $sql)
 			or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-			echo "<script>alert('Cliente cadastrado');window.location.href='ordemServico.html';</script>";
+			echo "<script>alert('Cliente cadastrado');window.location.href='ordemServico.php';</script>";
 
         }//fecha o else que salva
 
@@ -82,7 +82,7 @@ if($_POST){
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Cliente atualizado');window.location.href='ordemServico.html';</script>";
+		echo "<script>alert('Cliente atualizado');window.location.href='ordemServico.php';</script>";
 	
 	}//fecha o if editar
 	

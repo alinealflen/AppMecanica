@@ -71,15 +71,22 @@
     mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
     $result = mysqli_query($_SG['link'], $sql);
         while($aux = mysqli_fetch_assoc($result)){
+		$arrayFuncionarios[]=$aux['nome'];
+		 }//fecha while
+		 while($aux = mysqli_fetch_assoc($result)){
+		 $i=0;
     ?>
         <tr>
-            <td id="tabela2"><input type="text" name="nome" id="cpf2" value="<?php echo $aux["nome"];?>"></td>
+            <td id="tabela2"><input type="text" name="nome" id="input" value="<?php echo $arrayFuncionarios[$i];?>"></td>
             <td id="tabela2"><button type="submit" name="buscar"><img src="icons/cliente.png"></button>
         </tr>
     <?php  
+				$i= $i+1;
             }//fecha while
         }//fecha o else
-    
+ 
+ 
+?>
     ?>
     </tbody>
 </table>
