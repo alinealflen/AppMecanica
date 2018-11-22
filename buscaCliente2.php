@@ -1,28 +1,18 @@
 <?php
 
    //conectar no banco de dados - incluir o arquivo do banco
+   include "seguranca.php";
    include "conecta.php";
    //pega as variaveis vindas do formulario
-  // $cpf = trim($_POST["cpf"]);
-  $cpf = trim($_POST["cpf"]);
+  $cpf = trim($_GET["cpf"]);
   //busca os dados do cliente no bd
   $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
-   mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+   mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
    $result = mysqli_query($_SG['link'], $sql);
 
   $dados = mysqli_fetch_array($result);
 
-if ($_POST && $dados!= null ) {
-    //conectar no banco de dados - incluir o arquivo do banco
-    //include "conecta.php";
-    //pega as variaveis vindas do formulario
-  //  $cpf = trim($_POST["cpf"]);
-   //busca os dados do cliente no bd
-  // $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
-    //mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-   // $result = mysqli_query($_SG['link'], $sql);
-
-  // $dados = mysqli_fetch_array($result);
+if ( $dados != null ) {
 
    $cpf = $dados['cpf'];
    $nome = $dados['nome'];
@@ -49,13 +39,21 @@ if ($_POST && $dados!= null ) {
 
 <body id="fundo">
     <img src="css/img/logo.png" alt="World Bikes" width="20%">
+    <a heref="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
 
     <nav id="menu">
         <ul>
+<<<<<<< HEAD
+            <li><a href="http://www.worldbikesmecanica.tk/agenda.php">Agenda</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/funcionario.php">Funcionários</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/ordemServico.php">Ordem de Serviço</a></li>
+            <li><a class="active" href="http://www.worldbikesmecanica.tk/cliente.php">Cliente</a></li>
+=======
             <li><a href="agenda.html">Agenda</a></li>
             <li><a href="cadastro.html">Cadastro</a></li>
             <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a class="active" href="cliente.php">Cliente</a></li>
+>>>>>>> 197f178af9d79e3f51aeed17da1ced7a378be6e3
         </ul>
     </nav>
 
@@ -91,9 +89,9 @@ if ($_POST && $dados!= null ) {
                 <input type="text" name="cor" id="cor" value="<?php echo $cor;?>" />
                 <br />
                 <div class="button">
-					<button type="submit" name="salvar"><img src="icons/Salvar2.png"></button>
-					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
-					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
+					<button type="submit" name="salvar"><img src="css/img/icons/Salvar2.png"></button>
+					<button type="submit" name="excluir"><img src="css/img/icons/excluir4.png"></button>
+					<a href="http://www.worldbikesmecanica.tk/editar.php?cpf=<?php echo $cpf; ?>"><img src="css/img/icons/Editar4.png"></a>
                 </div>
             </fieldset>
         </form>

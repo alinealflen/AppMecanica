@@ -6,6 +6,9 @@
         //conectar no banco de dados - incluir o arquivo do banco
         include "conecta.php";
         //recuperar a variaveis vindas do formulario
+        
+        session_start(); 
+        
         $login = trim($_POST["login"]);
         $senha = trim($_POST["senha"]);
         //caso o usuario deixe espaços em branco, o trim retira espaços em branco
@@ -50,7 +53,7 @@
                                                     "senha"=>$linha["senha"],
                                                     "nome"=>$linha["nome"]);
                 //redirecionar para o arquivo 
-                header("Location: agenda.html");
+                header("Location: agenda.php");
  
             }
  

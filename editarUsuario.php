@@ -7,23 +7,21 @@
   
   $nome = $_GET['nome']; 
   //busca os dados do cliente no bd
-  $sql = "select nome, login, senha from usuario where nome='$nome'"; 
-   mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
-   $result = mysqli_query($_SG['link'], $sql);
+      if(isset($_POST['salvar'])){
+		
+		//$nome = ($_POST["nome"]);
+        $login = ($_POST["login"]);
+        $senha = ($_POST["senha"]);
+	
+		$sql = "UPDATE usuario SET nome='$nome', login='$login', senha='$senha' where nome='$nome'";
+		mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
+		//atualizando dados no banco
+		mysqli_query($_SG['link'], $sql)
+		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-  $dados = mysqli_fetch_array($result);
-
-if ($dados != null ) {
-   $nome = $dados['nome'];
-   $login = $dados['login'];
-   $senha = $dados['senha'];
-
-    }
-    else {
-        echo "<script>alert('Funcionário não cadastrado');window.location.href='cadastro.html';</script>";
-    }
-
-
+		echo "<script>alert('Usuário atualizado');history.back();</script>";
+	
+	}//fecha o if editar
 ?> 
 
 <html>
@@ -40,6 +38,7 @@ if ($dados != null ) {
 
     <img src="css/img/logo.png" alt="World Bikes" width="20%">
     <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
+
     <nav id="menu">
         <ul>
             <li><a href="http://www.worldbikesmecanica.tk/agenda.php">Agenda</a></li>
@@ -54,7 +53,7 @@ if ($dados != null ) {
     <h1 id="titulo">Cadastro de Usuário - World Bikes</h1>
 
     <div id=form2>
-        <form method="post" action="salvarFuncionario.php">
+        <form method="post" action="">
             <fieldset id=borda>
 
                 <label for="name">Nome:</label> 
@@ -69,16 +68,15 @@ if ($dados != null ) {
                 <br />
                 <label for="login">Login: </label>
                 <br />
-                <input type="text" name="login" id="login" value="<?php echo $login;?>" />
+                <input type="text" name="login" id="login"  />
                 <br />
                 <label for="senha">Senha:</label>
                 <br />
-                <input type="password" name="senha" id="senha" value="<?php echo $senha;?>"/>
+                <input type="password" name="senha" id="senha" />
                 <br />
                 <div class="button">
 					<button type="submit" name="salvar"><img src="css/img/icons/Salvar2.png"></button>
-					<button type="submit" name="excluir"><img src="css/img/icons/excluir4.png"></button>
-					<a href="http://www.worldbikesmecanica.tk/editarUsuario.php?nome=<?php echo $nome; ?>"><img src="css/img/icons/Editar4.png"></a>
+				
                 </div>
 				
             </fieldset>

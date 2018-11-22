@@ -27,7 +27,7 @@ if ($_POST) {
     else if(!empty($login) && !empty($nome)){
         $sql = "INSERT INTO usuario (nome, login, senha)
          VALUES ('$nome', '$login', '$senha')"; 
-         mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+         mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
         //inserindo dados no banco
         mysqli_query($_SG['link'], $sql)
          or die ("<script>alert('Erro na gravação');history.back();</script>"); 
@@ -42,7 +42,7 @@ if ($_POST) {
      if(isset($_POST['excluir'])){
 		$nome = trim($_POST["nome"]);
 		$sql = "DELETE FROM usuario WHERE nome='$nome'";
-		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+		mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
 		//excluindo dados no banco
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
@@ -50,21 +50,7 @@ if ($_POST) {
 		echo "<script>alert('Funcionário excluído!');history.back();</script>";
 	}//fecha i if  isset excluir
 	
-	if(isset($_POST['editar'])){
-		
-		$nome = ($_POST["nome"]);
-        $login = ($_POST["login"]);
-        $senha = ($_POST["senha"]);
-	
-		$sql = "UPDATE usuario SET nome='$nome', login='$login', senha='$senha' where nome='$cpf'";
-		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-		//atualizando dados no banco
-		mysqli_query($_SG['link'], $sql)
-		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
 
-		echo "<script>alert('Cliente atualizado');history.back();</script>";
-	
-	}//fecha o if editar
 
 
 }// fehca o if post

@@ -10,6 +10,7 @@
 }
 
 
+
 /*margin: auto para sempre ficar no centro  */
  /*LINHA DE SEPARAÇÃO TODAS AS PAGINAS*/
 
@@ -25,21 +26,24 @@ hr {
     overflow: hidden;
     background-color: #000000;
     list-style-type: none;
-	
+
 }
 /*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
-}
-/*MENU TODAS AS PÁGINAS*/
-#menu li {
     float: right;
+    position:relative;
+    right: 35%;
+    
 }
+
+
+
 /*MENU TODAS AS PÁGINAS*/
 #menu li a {
-    display: block;
+    
     color: #ffffff;
-    text-align: center;
+   
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -56,6 +60,7 @@ hr {
 					transition: all 0.5s ease;
 	
 }
+
 /*TÍTULO TODAS AS PÁGINAS*/
 #titulo, #segunda, #terca, #quarta, #quinta, #sexta, #sabado {
     text-align: center;
@@ -122,7 +127,7 @@ hr {
 }
 
 /*DEFINE OS TAMANHOS DOS INPUTS DE ORDEM DE SERVICO*/
-#precos {
+#precos1, #precos2, #preco3 {
     width: 50px;
 }
 /*TABELA LISTA FUNCIONARIOSS E CLIENTES*/

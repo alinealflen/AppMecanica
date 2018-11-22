@@ -2,20 +2,25 @@
 
     include "seguranca.php";
 
-if(isset($_POST['buscar'])){
-   //conectar no banco de dados - incluir o arquivo do banco
-   include "conecta.php";
-   //pega as variaveis vindas do formulario
-   $cpf = trim($_POST["cpf"]);
+ $idOrdem = trim($_GET["idOrdem"]);
+ 
+    include "conecta.php";
+ 
+  $sql = "select * from ordemServico where idOrdem='$idOrdem'"; 
+   mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
+   $resultCliente = mysqli_query($_SG['link'], $sql);
 
-  //busca os dados do cliente no bd
-  $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
+   $dadosOrdem = mysqli_fetch_array($resultCliente);
+    
+    $cpfCliente = $dadosOrdem['cpfCliente'];
+    //busca os dados do cliente no bd
+  $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf='$cpfCliente'"; 
    mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
    $result = mysqli_query($_SG['link'], $sql);
 
   $dados = mysqli_fetch_array($result);
 
-if ($_POST && $dados!= null ) {
+if ($dados != null ) {
 
    $cpf = $dados['cpf'];
    $nome = $dados['nome'];
@@ -23,56 +28,44 @@ if ($_POST && $dados!= null ) {
    $aro = $dados['aro'];
    $modelo = $dados['modelo'];
    $cor = $dados['cor'];
-    }
-    else {
-        echo "<script>alert('Cliente não cadastrado');window.location.href='cadastroCliente.html';</script>";
-    }
 }else{
-   $cpf = '';
-   $nome ='';
-   $telefone = '';
-   $aro = '';
-   $modelo = '';
-   $cor =  '';
-  
+       echo "<script>alert('ERROOOO');window.location.href='ordemServico.php';</script>";
+	 
 }
-///--------------------------------------------------------------------------
-if(isset($_POST['buscar2'])){
-    //conectar no banco de dados - incluir o arquivo do banco
-    include "conecta.php";
-    //pega as variaveis vindas do formulario
-    $numOS = trim($_POST["numOS"]);
- 
-   //busca os dados do cliente no bd
-    $sql = "select ordemServico.idOrdem, cliente.cpf, cliente.nome,
-    cliente.telefone, cliente.aro, cliente.modelo, cliente.cor from ordemServico, cliente where idOrdem=$numOS"; 
-    mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-    $result = mysqli_query($_SG['link'], $sql);
-    
-    if($result != null){
-    $idOrdem = $result['idOrdem'];
-    $cpf = $result['cpf'];
-    $nome = $result['nome'];
-    $telefone = $result['telefone'];
-    $aro = $result['aro'];
-    $modelo = $result['modelo'];
-    $cor = $result['cor'];
-    }
-     else {
-         echo "<script>alert('Ordem não encontrada');window.location.href='ordemServico.php';</script>";
-     }
-}
-else{ 
-   $cpf = '';
-   $nome ='';
-   $telefone = '';
-   $aro = '';
-   $modelo = '';
-   $cor =  '';
-   $idOrdem = '';
-}
-?> 
 
+    if(isset($_POST['salvar'])){
+		
+        include "conecta.php";
+    
+         if($valorTotal==null){
+            $statusOrdem = "Aguardando Orçamento";
+        } 
+        
+        if ($valorTotal > 0 && $status =! "Agendado"){
+            $statusOrdem = "Aguardando execução do serviço";
+        }else {
+           $statusOrdem = "Agendado"; 
+        }
+        
+    	$cpf = trim($_POST["cpf"]);
+		$valorMO = ($_POST["valorMO"]);
+		$valorPecas = ($_POST["valorPecas"]);
+		$valorTotal = ($_POST["valorTotal"]);
+		$descricaoServico = ($_POST["descricaoServico"]);
+	
+		$sql = "UPDATE ordemServico SET cpfCliente='$cpf', statusOrdem='$statusOrdem', valorMO='$valorMO', valorPecas='$valorPecas',
+					valorTotal='$valorTotal', descricaoServico='$descricaoServico' where idOrdem='$numOS'";
+		mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
+		//atualizando dados no banco
+		mysqli_query($_SG['link'], $sql)
+		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
+
+		echo "<script>alert('Ordem de serviço atualizada');window.location.href='ordemServico.php';</script>";
+	
+	}//fecha o if editar
+
+
+?> 
 
 <html>
 
@@ -99,16 +92,6 @@ else{
     <hr style="background-color: #33c208">
 
     <h1 id="titulo">Ordem de Serviço</h1>
-    
-    
-  
-        <form method="post" action="buscaOrdem2.php">
-            <div class="button">
-                <input type="text" name="idOrdem" id="precos" placeholder="Digite o número do OS..."/>
-                <button type="submit" name="buscar"><img src="css/img/icons/buscar.png"></button>
-            </div>
-        </form>
- 
 
     <div id=form4>
     <form method="POST" action="">
@@ -146,18 +129,12 @@ else{
     <div>
         <form id=form3 method="post" action="salvaOrdem.php">
             <fieldset id=borda>
-            <form method="post" action="">
                 <label for="servico" class="campo1">OS nº:</label>
-<<<<<<< HEAD
-                <input type="text" name="idOrdem" id="numOS" class="campo1"/> 
-                <input type="hidden" name="cpf" id="cpf" value="<?php echo $cpf;?>" />
-=======
-                <input type="text" name="numOS" id="numOS" class="campo1" value="<?php echo $idOrdem;?>" />
+                <input type="text" name="idOrdem" id="numOS" class="campo1" value="<?php echo $idOrdem?>"/> 
                 <input type="hidden" name="cpf" id="cpf" value="<?php echo $cpf;?>" />
 				 <div class="button">
-                    <img src="icons/buscar.png">	
+                  <a href="http://www.worldbikesmecanica.tk/buscaOrdem.php?idOrdem"> <img src="css/img/icons/buscar.png"></a>	
 				</div>
->>>>>>> 197f178af9d79e3f51aeed17da1ced7a378be6e3
 				<br />
                 <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->
                 <label for="cor">Status OS :</label>
@@ -176,25 +153,14 @@ else{
 				<br />
 				<textarea rows="5" cols="50" maxlength="500" name="descricaoServico" placeholder="Digite a descrição dos serviços e peças acima..."></textarea>
                <div class="button">
-					<button type="submit" name="salvar"><img src="css/img/icons/ordem.png"></button>
+					<button type="submit" name="editar"><img src="css/img/icons/Editar4.png"></button>
 					<button type="submit" name="excluir"><img src="css/img/icons/excluir4.png"></button>
-				    <img src="css/img/icons/Editar4.png">
 					<button type="submit" name="pdf"><img src="css/img/icons/PDF.png"></button>					
                 </div>
-            </form>
             </fieldset>
         </form>
     </div>
 
 </body>
 
-<script>
-function soma(){
-
-var valorMO = document.getElementById("valorMO").value;
-var valorPecas = document.getElementById("valorPecas").value;
-document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) + parseFloat(valorPecas);
-return valorTotal;
-}
-</script>
 </html> 
