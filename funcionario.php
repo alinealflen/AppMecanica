@@ -24,17 +24,18 @@
 </head>
 
 <body id="fundo">
-    <img src="http://www.worldbikesmecanica.tk/css/img/logo.png" alt="World Bikes" width="10%">
-    <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
 
     <nav id="menu">
         <ul>
-            <li><a href="http://www.worldbikesmecanica.tk/agenda.php">Agenda</a></li>
-            <li><a class="active" href="http://www.worldbikesmecanica.tk/funcionario.php">Funcionários</a></li>
-            <li><a href="http://www.worldbikesmecanica.tk/ordemServico.php">Ordem de Serviço</a></li>
-            <li><a href="http://www.worldbikesmecanica.tk/cliente.php">Cliente</a></li>
+            <li><img src="css/img/logo.png" width="20%" id="logo"></li>
+            <li><a href="http://www.worldbikesmecanica.tk/agenda.php"><img src="css/img/icons/agenda.png"></a></li>
+            <li><a class="active" href="http://www.worldbikesmecanica.tk/funcionario.php"><img src="css/img/icons/cracha.png"></a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/ordemServico.php"><img src="css/img/icons/ordemOS.png"></a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/cliente.php"><img src="css/img/icons/clienteArea.png"></a></li>
         </ul>
     </nav>
+
+    <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
 
     <hr style="background-color: #33c208">
 
