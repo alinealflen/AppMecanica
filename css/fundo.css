@@ -31,10 +31,9 @@ hr {
 /*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
-    float: right;
+    float: left;
     position:relative;
-    right: 35%;
-    
+    left: 35%; 
 }
 
 

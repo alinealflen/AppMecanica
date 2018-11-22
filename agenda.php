@@ -89,7 +89,7 @@ include "seguranca.php";
             <li><a href="http://www.worldbikesmecanica.tk/cliente.php"><img src="css/img/icons/clienteArea.png"></a></li>
             <li><img src="css/img/logo.png" width="20%" id="logo"></li>
         </ul>
-    </nav>
+        </nav>
     
         <hr style="background-color: #33c208" />
 
