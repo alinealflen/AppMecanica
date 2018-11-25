@@ -90,6 +90,7 @@ include "seguranca.php";
             <li><img src="css/img/logo.png" width="20%" id="logo"></li>
         </ul>
     </nav>
+
     
         <hr style="background-color: #33c208" />
 

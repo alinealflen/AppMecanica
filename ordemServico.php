@@ -144,12 +144,4 @@ if ($_POST && $dados!= null ) {
 
 </body>
 
-<script>
-function soma(){
-
-var valorMO = document.getElementById("valorMO").value;
-var valorPecas = document.getElementById("valorPecas").value;
-document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) +parseFloat(valorPecas);
-}
-</script>
 </html> 

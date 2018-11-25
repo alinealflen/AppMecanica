@@ -31,10 +31,16 @@ hr {
 /*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
+<<<<<<< HEAD
     float: right;
     position:relative;
     right: 35%;
     
+=======
+    float: left;
+    position:relative;
+    left: 35%; 
+>>>>>>> 6ca4980b9de3f50cbfd78ba99b3c2497238bee5b
 }
 
 

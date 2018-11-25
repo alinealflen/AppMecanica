@@ -18,7 +18,7 @@ include "conecta.php";
 		$dados1 = mysqli_fetch_array($result1);
 ?>
 
-<hmtl>
+<html>
 
   <link rel="stylesheet" href="css/fundo.css" type="text/css">
 <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
