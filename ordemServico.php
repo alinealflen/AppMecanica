@@ -1,4 +1,7 @@
 <?php
+
+    include "seguranca.php";
+
 if(isset($_POST['buscar'])){
    //conectar no banco de dados - incluir o arquivo do banco
    include "conecta.php";
@@ -7,7 +10,7 @@ if(isset($_POST['buscar'])){
 
   //busca os dados do cliente no bd
   $sql = "select nome, cpf, telefone, modelo, aro, cor from  cliente where cpf=$cpf"; 
-   mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+   mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
    $result = mysqli_query($_SG['link'], $sql);
 
   $dados = mysqli_fetch_array($result);
@@ -31,44 +34,11 @@ if ($_POST && $dados!= null ) {
    $aro = '';
    $modelo = '';
    $cor =  '';
+  
 }
-///--------------------------------------------------------------------------
-if(isset($_POST['buscar2'])){
-    //conectar no banco de dados - incluir o arquivo do banco
-    include "conecta.php";
-    //pega as variaveis vindas do formulario
-    $numOS = trim($_POST["numOS"]);
- 
-   //busca os dados do cliente no bd
-    $sql = "select ordemServico.idOrdem, cliente.cpf, cliente.nome,
-    cliente.telefone, cliente.aro, cliente.modelo, cliente.cor from ordemServico, cliente where idOrdem=$numOS"; 
-    mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-    $result = mysqli_query($_SG['link'], $sql);
-    
-    if($result != null){
-    $idOrdem = $result['idOrdem'];
-    $cpf = $result['cpf'];
-    $nome = $result['nome'];
-    $telefone = $result['telefone'];
-    $aro = $result['aro'];
-    $modelo = $result['modelo'];
-    $cor = $result['cor'];
-    }
-     else {
-         echo "<script>alert('Ordem não encontrada');window.location.href='ordemServico.php';</script>";
-     }
-}
-else{ 
-   $cpf = '';
-   $nome ='';
-   $telefone = '';
-   $aro = '';
-   $modelo = '';
-   $cor =  '';
-   $idOrdem = '';
-}
-?> 
 
+
+?> 
 
 <html>
 
@@ -81,19 +51,30 @@ else{
 
 <body id="fundo">
     <img src="css/img/logo.png" alt="World Bikes" id="logo">
+    <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
 
     <nav id="menu">
         <ul>
-            <li><a href="agenda.html">Agenda</a></li>
-            <li><a href="cadastro.html">Cadastro</a></li>
-            <li><a class="active" href="ordemServico.php">Ordem de Serviço</a></li>
-            <li><a href="cliente.php">Cliente</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/agenda.php">Agenda</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/funcionario.php">Funcionários</a></li>
+            <li><a class="active" href="http://www.worldbikesmecanica.tk/ordemServico.php">Ordem de Serviço</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/cliente.php">Cliente</a></li>
         </ul>
     </nav>
 
     <hr style="background-color: #33c208">
 
     <h1 id="titulo">Ordem de Serviço</h1>
+    
+    
+  
+        <form method="post" action="buscaOrdem2.php">
+            <div class="button">
+                <input type="text" name="idOrdem" id="precos" placeholder="Digite o número do OS..."/>
+                <button type="submit" name="buscar"><img src="css/img/icons/buscar.png"></button>
+            </div>
+        </form>
+ 
 
     <div id=form4>
     <form method="POST" action="">
@@ -102,7 +83,7 @@ else{
                 <br />
                 <input type="text" name="cpf" id="cpf" class="campo1" value="<?php echo $cpf;?>"  />
                 <div class="button">
-                <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
+                <button type="submit" name="buscar"><img src="css/img/icons/buscar.png"></button>
                 </div>
                 <br />
                 <label for="name">Nome do cliente:</label>
@@ -131,15 +112,14 @@ else{
     <div>
         <form id=form3 method="post" action="salvaOrdem.php">
             <fieldset id=borda>
-            <form method="post" action="">
                 <label for="servico" class="campo1">OS nº:</label>
-                <input type="text" name="numOS" id="numOS" class="campo1" value="<?php echo $idOrdem;?>" />
+                <input type="text" name="idOrdem" id="numOS" class="campo1"/> 
                 <input type="hidden" name="cpf" id="cpf" value="<?php echo $cpf;?>" />
-				 <div class="button">
-                    <img src="icons/buscar.png">	
-				</div>
 				<br />
                 <!--<textarea rows="5" cols="50" maxlength="500"></textarea> -->
+                <label for="cor">Status OS :</label>
+				<input type="text" name="statusOS" id="numOS" />
+                <br />
 				<label for="cor">Mão de Obra R$:</label>
 				<input type="text" name="valorMO" id="precos" />
 				<label for="cor">Peças R$:</label>
@@ -153,12 +133,11 @@ else{
 				<br />
 				<textarea rows="5" cols="50" maxlength="500" name="descricaoServico" placeholder="Digite a descrição dos serviços e peças acima..."></textarea>
                <div class="button">
-					<button type="submit" name="salvar"><img src="icons/ordem.png"></button>
-					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
-					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
-					<button type="submit" name="pdf"><img src="icons/PDF.png"></button>					
+					<button type="submit" name="salvar"><img src="css/img/icons/ordem.png"></button>
+					<button type="submit" name="excluir"><img src="css/img/icons/excluir4.png"></button>
+				    <img src="css/img/icons/Editar4.png">
+					<button type="submit" name="pdf"><img src="css/img/icons/PDF.png"></button>					
                 </div>
-            </form>
             </fieldset>
         </form>
     </div>
@@ -170,8 +149,7 @@ function soma(){
 
 var valorMO = document.getElementById("valorMO").value;
 var valorPecas = document.getElementById("valorPecas").value;
-document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) + parseFloat(valorPecas);
-return valorTotal;
+document.getElementById("valorTotal").innerHTML = parseFloat(valorMO) +parseFloat(valorPecas);
 }
 </script>
 </html> 

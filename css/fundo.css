@@ -5,9 +5,10 @@
     margin:auto;
     background-color: #ffffff;
 
-    background-image: url(img/fundo.jpg);
+    background-image: url(fundo1.jpg);/* url(img/fundo.jpg);*/
     background-size: cover;
 }
+
 
 
 /*margin: auto para sempre ficar no centro  */
@@ -25,21 +26,24 @@ hr {
     overflow: hidden;
     background-color: #000000;
     list-style-type: none;
-	
+
 }
 /*MENU TODAS AS PÁGINAS*/
 #menu ul li { 
     display: inline; 
-}
-/*MENU TODAS AS PÁGINAS*/
-#menu li {
     float: right;
+    position:relative;
+    right: 35%;
+    
 }
+
+
+
 /*MENU TODAS AS PÁGINAS*/
 #menu li a {
-    display: block;
+    
     color: #ffffff;
-    text-align: center;
+   
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -56,6 +60,7 @@ hr {
 					transition: all 0.5s ease;
 	
 }
+
 /*TÍTULO TODAS AS PÁGINAS*/
 #titulo, #segunda, #terca, #quarta, #quinta, #sexta, #sabado {
     text-align: center;
@@ -110,11 +115,6 @@ hr {
     display: block;
     width: 200px;
 }
-#logo2 {
-    margin-right: auto;
-    display: block;
-    width: 30%;
-}
 
 /*PARA POSICIONAR OS BOTOES DE BUSCA DAS PAGINAS AO LADO DOS CAMPOS INPUTS*/
 .campo1{
@@ -122,17 +122,35 @@ hr {
 }
 
 /*DEFINE OS TAMANHOS DOS INPUTS DE ORDEM DE SERVICO*/
-#precos {
+#precos1, #precos2, #preco3 {
     width: 50px;
 }
 /*TABELA LISTA FUNCIONARIOSS E CLIENTES*/
 #tabelaLista{
     margin:auto;
-    border-width: thin;
-    border-style: solid;
+   /* border-width: thin;*/
+    /*border-style: solid;*/
    /* border-radius: 40px 40px;*/
-    border-color: #33c208;
-    background-color: beige;
+    /*border-color: #33c208;*/
+    background-color: #F2F2F2;
+}
+
+thead {
+  background: #ccc url(https://www.devfuria.com.br/html-css/tabelas/bar.gif) repeat-x left center;
+  
+}
+
+#hover:hover { /*tr:hover, tr:nth-child(even):hover*/
+  background-color:#BCF5A9;
+ 
+}
+
+td, th {
+  padding: 0.1em 1em;
+}
+
+tr:nth-child(even) {
+    background-color:#E6E6E6;
 }
 /*TODOS OS BOTÕES*/
 button{
@@ -245,7 +263,15 @@ button{
 	#rodape{
 	padding-top: 109px;
 	}
-
+	#form3{
+	 padding-top: 280px;
+	 padding-left: 38%;
+	 width: 25%
+	}
+	#form4{
+	 width: 10.5%;
+	 padding-left: 45%;
+	}
 	#form2{
 	 width: 11%;
 	 padding-left: 45%;

@@ -45,7 +45,7 @@ if($_POST){
 		else {
 			$sql = "INSERT INTO cliente (nome, cpf, telefone, modelo, aro, cor)
 			VALUES ('$nome', '$cpf', '$telefone', '$modelo','$aro','$cor')"; 
-			mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+			mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
 			//inserindo dados no banco
 			mysqli_query($_SG['link'], $sql)
 			or die ("<script>alert('Erro na gravação');history.back();</script>"); 
@@ -59,7 +59,7 @@ if($_POST){
 	if(isset($_POST['excluir'])){
 		$cpf = trim($_POST["cpf"]);
 		$sql = "DELETE FROM cliente WHERE cpf='$cpf'";
-		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+		mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
 		//excluindo dados no banco
 		mysqli_query($_SG['link'], $sql)
 		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
@@ -67,22 +67,12 @@ if($_POST){
 		echo "<script>alert('Cliente excluído!');window.location.href='cliente.php';</script>";
 	}//fecha i if  isset excluir
 	
-	if(isset($_POST['editar'])){
+	if(isset($_POST['edita'])){
+        
+        $cpf = trim($_POST["cpf"]);
 		
-		$nome = ($_POST["nome"]);
-		$cpf = trim($_POST["cpf"]);
-		$telefone = trim($_POST["telefone"]);
-		$modelo = trim($_POST["modelo"]);
-		$aro = trim($_POST["aro"]);
-		$cor = trim($_POST["cor"]);
-	
-		$sql = "UPDATE cliente SET nome='$nome', telefone='$telefone', modelo='$modelo', aro='$aro', cor='$cor' where cpf='$cpf'";
-		mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
-		//atualizando dados no banco
-		mysqli_query($_SG['link'], $sql)
-		or die ("<script>alert('Erro na gravação');history.back();</script>"); 
-
-		echo "<script>alert('Cliente atualizado');window.location.href='ordemServico.php';</script>";
+        include "www.worldbikesmecanica.tk/editar.php?cpf=<?php echo $cpf;?>";
+       
 	
 	}//fecha o if editar
 	

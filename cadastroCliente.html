@@ -1,68 +1,70 @@
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <title>Cadastrar cliente - World Bikes</title>
-    <link href="css/fundo.css" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css'>
+<link href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+<link href="/css/fundo.css" rel="stylesheet">
+<link href="/css/estiloCadastro.css" rel="stylesheet">
 
-</head>
 
-<body id="fundo">
-    <img src="css/img/logo.png" alt="World Bikes" width="20%">
-
-    <nav id="menu">
+<nav id="menu">
         <ul>
-            <li><a href="agenda.html">Agenda</a></li>
+            <li><a href="agenda.php">Agenda</a></li>
             <li><a href="funcionario.php">Funcionários</a></li>
-            <li><a href="ordemServico.html">Ordem de Serviço</a></li>
+            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
             <li><a class="active" href="cliente.php">Cliente</a></li>
+            <li><img src="css/img/logo.png" alt="World Bikes" width="20%"></li>
         </ul>
     </nav>
 
     <hr style="background-color: #33c208">
 
-    <h1 id="titulo">Cadastro de Cliente</h1>
+<div id="content">
+    <h1>Cadastrar Cliente</h1>
 
-    <div>
-        <form method="post" action="salvarCliente.php" id=form2>
-            <fieldset id=borda>
-                <label for="cpf">CPF: </label>
-                <br />
-                <input type="text" name="cpf" id="cpf" class="campo1" />
-                <div class="button">
-                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
-                </div>
-                <br />
-                <label for="name">Nome do cliente:</label>
-                <br />
-                <input type="text" name="nome" id="nome" />
-                <br />
-                <label for="telefone">Telefone:</label>
-                <br />
-                <input type="text" name="telefone" id="telefone" />
-                <br />
+    <form action="salvarCliente.php" method="post" autocomplete="on">
+        <p>
+            <label for="username" class="icon-user"> Nome
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="nome" id="username" required="required" placeholder="Nome do cliente..." />
+        </p>
+		
+		<p>
+            <label for="username" class="icon-user"> CPF
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="cpf" id="username" required="required" placeholder="CPF do cliente..." />
+        </p>
 
-                <label for="modelo">Modelo da bicicleta:</label>
-                <br />
-                <input type="text" name="modelo" id="modelo" />
-                <br />
-                <label for="aro">Aro da bicicleta: </label>
-                <br />
-                <input type="text" name="aro" id="aro" />
-                <br />
-                <label for="cor">Cor da bicicleta:</label>
-                <br />
-                <input type="text" name="cor" id="cor" />
-                <br />
-                <div class="button">
-					<button type="submit" name="salvar"><img src="icons/Salvar2.png"></button>
-					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
-					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
-                </div>
-            </fieldset>
-        </form>
-    </div>
- 
-</body>
+        <p>
+            <label for="usermail" class="icon-phone"> WhatsApp
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="telefone" id="usermail" placeholder="Telefone do cliente..." required="required" />
+        </p>
+
+        <p>
+            <label for="usersite" > Modelo da bicicleta</label>
+            <input type="text" name="modelo" id="usersite" placeholder="Marca/modelo..." />
+        </p>
+
+        <p>
+            <label for="subject" > Cor da bicicleta</label>
+            <input type="text" name="cor" id="subject" placeholder="Cores da bicicleta..." />
+        </p>
+
+        <p>
+            <label for="message"> Aro da bicicleta
+                <span class="required">*</span>
+            </label>
+            <input type="text" name="aro" id="subject" placeholder="Aro da bicicleta..." />
+        </p>
+        <p class="indication">
+            <span class="required"> * </span>Obrigatórios</p>
+
+        <button type="submit" name="salvar"><img src="css/img/icons/Salvar2.png"></button>
+
+    </form>
+</div>
 
 </html>

@@ -1,25 +1,26 @@
 <?php
 
+    include "seguranca.php";
    //conectar no banco de dados - incluir o arquivo do banco
    include "conecta.php";
    //pega as variaveis vindas do formulario
-  // $cpf = trim($_POST["cpf"]);
-  $nome = ($_POST["nome"]);
+  
+  $nome = $_GET['nome']; 
   //busca os dados do cliente no bd
   $sql = "select nome, login, senha from usuario where nome='$nome'"; 
-   mysqli_select_db($_SG['link'],"oficina") or die ("Banco de Dados Inexistente!"); 
+   mysqli_select_db($_SG['link'],"1086027") or die ("Banco de Dados Inexistente!"); 
    $result = mysqli_query($_SG['link'], $sql);
 
   $dados = mysqli_fetch_array($result);
 
-if ($_POST && $dados!= null ) {
+if ($dados != null ) {
    $nome = $dados['nome'];
    $login = $dados['login'];
    $senha = $dados['senha'];
 
     }
     else {
-        echo "<script>alert('Funcionário não cadastrado');window.location.href='cadastroCliente.html';</script>";
+        echo "<script>alert('Funcionário não cadastrado');window.location.href='cadastro.html';</script>";
     }
 
 
@@ -38,13 +39,13 @@ if ($_POST && $dados!= null ) {
 <body id="fundo">
 
     <img src="css/img/logo.png" alt="World Bikes" width="20%">
-
+    <a href="http://www.worldbikesmecanica.tk/sair.php"><img src="css/img/icons/sair.png"></a>
     <nav id="menu">
         <ul>
-            <li><a href="agenda.html">Agenda</a></li>
-            <li><a href="funcionario.php">Funcionários</a></li>
-            <li><a href="ordemServico.php">Ordem de Serviço</a></li>
-            <li><a href="cliente.php">Cliente</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/agenda.php">Agenda</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/funcionario.php">Funcionários</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/ordemServico.php">Ordem de Serviço</a></li>
+            <li><a href="http://www.worldbikesmecanica.tk/cliente.php">Cliente</a></li>
         </ul>
         </nav>
 
@@ -61,8 +62,8 @@ if ($_POST && $dados!= null ) {
                 <br />
                 <input type="text" name="nome" id="nome" value="<?php echo $nome;?>"/>
 				<!--<div class="button">
-                    <button type="submit" name="buscar"><img src="icons/buscar.png"></button>
-                    <input a href="buscaUsuario.php" src="icons/buscar.png" type="image">
+                    <button type="submit" name="buscar"><img src="http://www.worldbikesmecanica.tk/icons/buscar.png"></button>
+                    <input a href="buscaUsuario.php" src="http://www.worldbikesmecanica.tk/icons/buscar.png" type="image">
                 </div>-->
         
                 <br />
@@ -75,9 +76,9 @@ if ($_POST && $dados!= null ) {
                 <input type="password" name="senha" id="senha" value="<?php echo $senha;?>"/>
                 <br />
                 <div class="button">
-					<button type="submit" name="salvar"><img src="icons/Salvar2.png"></button>
-					<button type="submit" name="excluir"><img src="icons/excluir4.png"></button>
-					<button type="submit" name="editar"><img src="icons/Editar4.png"></button>
+					<button type="submit" name="salvar"><img src="css/img/icons/Salvar2.png"></button>
+					<button type="submit" name="excluir"><img src="css/img/icons/excluir4.png"></button>
+					<a href="http://www.worldbikesmecanica.tk/editarUsuario.php?nome=<?php echo $nome; ?>"><img src="css/img/icons/Editar4.png"></a>
                 </div>
 				
             </fieldset>
